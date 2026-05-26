@@ -65,37 +65,27 @@ print(a % b)
 print(a ** b)
 ```
 5. Conditional Statements
+```python
 if
 age = 18
 
 if age >= 18:
     print("Adult")
-if-else
-num = 5
-
-if num % 2 == 0:
-    print("Even")
-else:
-    print("Odd")
-if-elif-else
-marks = 85
-
-if marks >= 90:
-    print("A")
-elif marks >= 70:
-    print("B")
-else:
-    print("C")
+```
 6. Loops
+```python
 for loop
 for i in range(5):
     print(i)
+```
 while loop
+```python
 i = 1
 
 while i <= 5:
     print(i)
     i += 1
+```
 7. Pattern Programs
 Star Pattern
 rows = 5
@@ -184,12 +174,16 @@ def printNums(n):
 
 printNums(5)
 15. Lambda Function
+```python
 square = lambda x: x * x
 
 print(square(5))
+```
 With map()
+```python
 nums = [1,2,3]
 
 result = list(map(lambda x: x*2, nums))
 
 print(result)
+```
