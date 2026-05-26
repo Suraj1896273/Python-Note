@@ -132,6 +132,16 @@ class Student:
 s1 = Student("Suraj")
 s1.show()
 ```
+
+| Function                           | Method                              |
+| ---------------------------------- | ----------------------------------- |
+| Independent block of code          | Function inside a class/object      |
+| Does not belong to an object       | Belongs to an object/class          |
+| Called directly                    | Called using object                 |
+| Syntax: `function()`               | Syntax: `object.method()`           |
+| Cannot directly access object data | Can access object data using `self` |           
+
+
 Types of Methods in Python
 1. Instance Method
 
