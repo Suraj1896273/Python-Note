@@ -156,7 +156,7 @@ Types of Methods in Python
 ```
 
 
-3. Class Method   :-  A class method is a method that works with class variables.  It works with cls parameter and created using @classmethod
+2. Class Method   :-  A class method is a method that works with class variables.  It works with cls parameter and created using @classmethod
 
    ```python
       class Car:
