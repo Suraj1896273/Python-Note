@@ -192,14 +192,13 @@ Decorator used:
 @staticmethod
 
 ```python
-     class Math:
+class Math:
 
-        @staticmethod
-           def add(a, b):
-              return a + b
-
-     print(Math.add(2,3))
-  ```
+   @staticmethod
+   def add(a, b):
+      return a + b
+ print(Math.add(2,3))
+```
 
 | Instance Method               | Class Method                    | Static Method                                   |
 | ----------------------------- | ------------------------------- | ----------------------------------------------- |
