@@ -184,9 +184,7 @@ Types of Methods in Python
 
    Car.show()
 ```
-3. Static Method
-
-Independent utility method.
+3. Static Method  :-  Independent utility method.
 
 Decorator used:
 
@@ -194,43 +192,21 @@ Decorator used:
 
 Example:
 
+```python
 class Math:
 
     @staticmethod
     def add(a, b):
         return a + b
 
+
 print(Math.add(2,3))
-Difference Between Instance, Class, and Static Method
-Type	Uses
-Instance Method	Works with object data
-Class Method	Works with class data
-Static Method	Utility/helper function
-Class Variable vs Instance Variable
-Class Variable
+```
 
-Shared by all objects.
-
-class Car:
-    company = "TATA"
-Instance Variable
-
-Different for every object.
-
-self.model = model
-Example
-class Car:
-
-    company = "TATA"
-
-    def __init__(self, model):
-        self.model = model
-
-c1 = Car("Nano")
-c2 = Car("Safari")
-
-print(c1.company)
-print(c2.company)
-
-print(c1.model)
-print(c2.model)
+| Instance Method               | Class Method                    | Static Method                                   |
+| ----------------------------- | ------------------------------- | ----------------------------------------------- |
+| Works with object data        | Works with class data           | Utility/helper function                         |
+| Uses `self`                   | Uses `cls`                      | No `self` or `cls`                              |
+| Can access instance variables | Can access class variables      | Cannot directly access instance/class variables |
+| Called using object           | Called using class/object       | Called using class/object                       |
+| Most commonly used            | Used for class-level operations | Used for helper tasks                           |
