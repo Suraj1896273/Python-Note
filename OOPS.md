@@ -112,11 +112,15 @@ Methods in Class
 
 Functions inside class are called methods.
 
+```python
 class Student:
 
     def show(self):
         print("Hello")
-Example of Method
+````
+
+Method with constructor
+```python
 class Student:
 
     def __init__(self, name):
@@ -127,6 +131,7 @@ class Student:
 
 s1 = Student("Suraj")
 s1.show()
+```
 Types of Methods in Python
 1. Instance Method
 
