@@ -44,10 +44,9 @@ x = 10
 print(type(x))
 
 4. Input & Output
-5. ```python
+ ```python
 name = input("Enter your name : ")
 print("Hello", name)
-```
 
 Integer Input
 num = int(input("Enter number : "))
@@ -64,7 +63,7 @@ print(a * b)
 print(a / b)
 print(a % b)
 print(a ** b)
-
+```
 5. Conditional Statements
 if
 age = 18
