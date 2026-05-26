@@ -143,31 +143,45 @@ s1.show()
 
 
 Types of Methods in Python
-1. Instance Method
+1. Instance Method  :-   An intstance method that works object data [instence variable].
 
-Works with object variables.
+```python
+   class car :
+     def __init__(self , brand):
+         self.brand = brand
+     def display(self):
 
-class A:
+   C1 = car("BMW")
+   C1.disply
+```
+
+
+3. Class Method   :-  A class method is a method that works with class variables.  It works with cls parameter and created using @classmethod
+
+   ```python
+      class Car:
+    company = "TATA"
+    @classmethod
+    def print(cls):
+        print(cls.company)
+    
+    def __init__(self , model , price):
+        self.model = model
+        self.price = price
 
     def show(self):
-        print("Instance Method")
-2. Class Method
+        print(self.model)
+        print(self.price)
 
-Works with class variables.
+c1 = Car("NANO" , 10000)
+c2 = Car("Punch" , 50000)
+c3 = Car("Alto" , 60000)
 
-Decorator used:
-
-@classmethod
-
-Example:
-
-class Car:
-
-    company = "TATA"
-
-    @classmethod
-    def show(cls):
-        print(cls.company)
+Car.print()
+c1.show()
+c2.show()
+c3.show()
+```
 
 Car.show()
 3. Static Method
