@@ -102,6 +102,7 @@ class Car:
 Here:
 
 model is instance variable
+
 What is instence variable :-  Instence variables are the variables whose separate copy is created in every object
                                      *Instence variables are defined and initilized using a constructor with self parameter
 
