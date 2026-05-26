@@ -19,6 +19,7 @@ Cyber Security
 print("Hello World")
 ```
 Variables
+```python
 name = "Suraj"
 age = 20
 price = 99.5
@@ -26,6 +27,7 @@ price = 99.5
 print(name)
 print(age)
 print(price)
+```
 2. Data Types
 Type	Example
 int	10
