@@ -38,16 +38,21 @@ list	[1,2,3]
 tuple	(1,2,3)
 set	{1,2,3}
 dict	{"a":1}
+
 Check Type
 x = 10
 print(type(x))
-3. Input & Output
+
+4. Input & Output
+5. ```python
 name = input("Enter your name : ")
 print("Hello", name)
+
 Integer Input
 num = int(input("Enter number : "))
 print(num)
-4. Operators
+
+6. Operators
 Arithmetic Operators
 a = 10
 b = 5
@@ -58,6 +63,7 @@ print(a * b)
 print(a / b)
 print(a % b)
 print(a ** b)
+```
 5. Conditional Statements
 if
 age = 18
