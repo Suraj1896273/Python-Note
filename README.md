@@ -88,16 +88,21 @@ while i <= 5:
 ```
 7. Pattern Programs
 Star Pattern
+```python
 rows = 5
 
 for i in range(rows):
     print("* " * (i + 1))
+```
 Pyramid Pattern
+```python
 rows = 5
 
 for i in range(rows):
     print(" " * (rows - i - 1) + "* " * (i + 1))
+```
 Diamond Pattern
+```python
 rows = 5
 
 for i in range(rows):
@@ -105,20 +110,24 @@ for i in range(rows):
 
 for i in range(rows-1):
     print(" "*(i+1) + "* "*(rows-i-1))
+```
 8. Strings
+```python
 name = "Python"
 print(name[0])
 print(len(name))
-String Slicing
+#String Slicing
 text = "Programming"
 
 print(text[0:5])
 print(text[::-1])
-Reverse String
+#Reverse String
 text = "hello"
 
 print(text[::-1])
+```
 9. Lists
+```python
 numbers = [1,2,3,4]
 
 print(numbers)
@@ -129,6 +138,7 @@ numbers.remove(2)
 numbers.sort()
 
 print(numbers)
+```
 Loop Through List
 for i in numbers:
     print(i)
