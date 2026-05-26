@@ -199,7 +199,6 @@ class Math:
     def add(a, b):
         return a + b
 
-
 print(Math.add(2,3))
 ```
 
