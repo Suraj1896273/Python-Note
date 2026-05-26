@@ -2,19 +2,6 @@ What is OOP?
 
 OOP stands for Object-Oriented Programming.
 
-It is a programming style where we organize code using:
-
-Classes
-Objects
-
-OOP helps to:
-
-Reuse code
-Make code organized
-Improve security
-Handle large projects easily
-Real Life Example
-
 Think about a Car.
 
 A car has:
@@ -37,23 +24,22 @@ class Car:
     pass
 ```
 
-Here:
-
-Car is a class
-pass means empty block
 What is an Object?
 
 An object is an instance of a class.
 
+```python
 class Car:
     pass
 
 c1 = Car()
+```
 
 Here:
 
 c1 is an object of class Car
 Creating Variables Inside Class
+```python
 class Student:
     name = "Suraj"
     age = 20
@@ -67,6 +53,7 @@ Output:
 
 Suraj
 20
+```
 Constructor in Python
 
 Constructor is a special method:
@@ -76,10 +63,11 @@ Used to initialize object data
 
 Constructor name:
 
-__init__()
+```python __init__()```
 Example of Constructor
 class Student:
 
+```python
     def __init__(self, name, age):
         self.name = name
         self.age = age
@@ -88,6 +76,8 @@ s1 = Student("Suraj", 20)
 
 print(s1.name)
 print(s1.age)
+
+```
 What is self?
 
 self refers to the current object.
@@ -104,15 +94,16 @@ Instance Variables
 Variables created using self.
 
 class Car:
-
+```python
     def __init__(self, model):
         self.model = model
+```
 
 Here:
 
 model is instance variable
-
-Each object has separate copy.
+What is instence variable :-  Instence variables are the variables whose separate copy is created in every object
+                                     *Instence variables are defined and initilized using a constructor with self parameter
 
 Methods in Class
 
