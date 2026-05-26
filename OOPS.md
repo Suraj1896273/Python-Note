@@ -229,3 +229,10 @@ class Dog(Animal):
 d = Dog()
 d.sound()
 ```
+## Advantages :- 
+
+1. Reuse code
+2. Less coding
+3. Easy to manage
+4. Improves readability
+5. Supports polymorphism
