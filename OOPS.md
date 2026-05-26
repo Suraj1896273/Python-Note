@@ -187,17 +187,13 @@ Types of Methods in Python
 
 3. Static Method  :-  Independent utility method.
 
-Decorator used:
-
-@staticmethod
-
 ```python
-class Math:
+class Addition:
 
    @staticmethod
    def add(a, b):
       return a + b
- print(Math.add(2,3))
+ print(Addition.add(2,3))
 ```
 
 | Instance Method               | Class Method                    | Static Method                                   |
