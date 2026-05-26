@@ -54,7 +54,7 @@ Output:
 Suraj
 20
 ```
-Constructor in Python
+## Constructor in Python
 
 Constructor is a special method:
 
@@ -103,7 +103,7 @@ Here:
 
 model is instance variable
 
-What is instence variable  :-   Instence variables are the variables whose separate copy is created in every object
+## What is instence variable  :-   Instence variables are the variables whose separate copy is created in every object
                                     
                                      *Instence variables are defined and initilized using a constructor with self parameter
 
@@ -132,6 +132,7 @@ class Student:
 s1 = Student("Suraj")
 s1.show()
 ```
+## Difference between Function and Method
 
 | Function                           | Method                              |
 | ---------------------------------- | ----------------------------------- |
@@ -143,7 +144,7 @@ s1.show()
 
 
 Types of Methods in Python
-1. Instance Method  :-   An intstance method that works object data [instence variable].
+## 1. Instance Method  :-   An intstance method that works object data [instence variable].
 
 ```python
    class car :
@@ -156,7 +157,7 @@ Types of Methods in Python
 ```
 
 
-2. Class Method   :-  A class method is a method that works with class variables.  It works with cls parameter and created using @classmethod
+## 2. Class Method   :-  A class method is a method that works with class variables.  It works with cls parameter and created using @classmethod
 
    ```python
       class Car:
@@ -185,7 +186,7 @@ Types of Methods in Python
    Car.show()
 ```
 
-3. Static Method  :-  Independent utility method.
+## 3. Static Method  :-  Independent utility method.
 
 ```python
 class Addition:
@@ -196,6 +197,8 @@ class Addition:
  print(Addition.add(2,3))
 ```
 
+## Instance Method VS Class Mthod VS Static Method
+
 | Instance Method               | Class Method                    | Static Method                                   |
 | ----------------------------- | ------------------------------- | ----------------------------------------------- |
 | Works with object data        | Works with class data           | Utility/helper function                         |
@@ -203,3 +206,26 @@ class Addition:
 | Can access instance variables | Can access class variables      | Cannot directly access instance/class variables |
 | Called using object           | Called using class/object       | Called using class/object                       |
 | Most commonly used            | Used for class-level operations | Used for helper tasks                           |
+
+
+## What is Inheritance ?
+
+Inheritance is an OOP concept where one class acquires the properties and methods of another class.
+
+It helps in:
+
+Code reusability
+Reducing duplicate code
+Creating parent-child relationships between classes.
+
+```python
+class Animal:
+    def sound(self):
+        print("Animal makes sound")
+
+class Dog(Animal):
+    pass
+
+d = Dog()
+d.sound()
+```
