@@ -173,17 +173,17 @@ Types of Methods in Python
         print(self.model)
         print(self.price)
 
-c1 = Car("NANO" , 10000)
-c2 = Car("Punch" , 50000)
-c3 = Car("Alto" , 60000)
+   c1 = Car("NANO" , 10000)
+   c2 = Car("Punch" , 50000)
+   c3 = Car("Alto" , 60000)
 
-Car.print()
-c1.show()
-c2.show()
-c3.show()
+   Car.print()
+   c1.show()
+   c2.show()
+   c3.show()
+
+   Car.show()
 ```
-
-Car.show()
 3. Static Method
 
 Independent utility method.
