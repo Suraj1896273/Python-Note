@@ -1,4 +1,4 @@
-What is OOP?
+##  What is OOP?
 
 OOP stands for Object-Oriented Programming.
 
@@ -13,7 +13,7 @@ In OOP:
 
 Car = Class
 Real car = Object
-What is a Class?
+## What is a Class?
 
 A class is a blueprint or template for creating objects.
 
@@ -24,7 +24,7 @@ class Car:
     pass
 ```
 
-What is an Object?
+## What is an Object?
 
 An object is an instance of a class.
 
@@ -78,7 +78,7 @@ print(s1.name)
 print(s1.age)
 
 ```
-What is self?
+## What is self?
 
 self refers to the current object.
 
@@ -272,3 +272,94 @@ class Employee(Company):
 e1 = Employee("Suraj", 50000)
 e1.show()
 ```
+## What is Multiple Inheritance ?
+Multiple Inheritance means :- One child class inherits properties and methods from more than one parent class.
+
+## Syntax :-
+
+```python
+class Parent1:
+    pass
+
+class Parent2:
+    pass
+
+class Child(Parent1, Parent2):
+    pass
+```
+
+## Diagram :-
+
+        Father      Mother
+            \       /
+             \     /
+              Child
+## Method Overriding in Multiple Inheritance :-
+
+```python
+
+ class A:
+    def show(self):
+        print("A class")
+
+class B:
+    def show(self):
+        print("B class")
+
+class C(A, B):
+    pass
+
+c = C()
+c.show()
+```
+## Output :- A class , Because Python checks A first.
+
+## Method Resolution Order (MRO) :- 
+
+```python
+class A:
+    def __init__(self):
+        print("Constructor A")
+
+class B:
+    def __init__(self):
+        print("Constructor B")
+
+class C(A, B):
+    def __init__(self):
+        super().__init__()
+
+c = C()
+```
+
+Python searches classes from left to right.
+
+## Check MRO :-
+
+(1) print(C.__mro__)
+(2)print(C.mro())
+
+## Output :-
+(<class '__main__.C'>,
+ <class '__main__.A'>,
+ <class '__main__.B'>,
+ <class 'object'>)
+
+ ## Advantages of Multiple Inheritance :- 
+ 
+ | Advantage           | Explanation                           |
+| ------------------- | ------------------------------------- |
+| Code Reuse          | Reuse methods from multiple classes   |
+| Less Repetition     | Avoid duplicate code                  |
+| Flexible Design     | Combine features easily               |
+| Better Organization | Split features into different classes |
+
+## Disadvantages of  Multiple Inheritance :-
+
+| Disadvantage    | Explanation                        |
+| --------------- | ---------------------------------- |
+| Complexity      | Code becomes difficult             |
+| Confusion       | Same method names create confusion |
+| Debugging Hard  | Errors harder to find              |
+| Diamond Problem | Ambiguity may happen               |
+
