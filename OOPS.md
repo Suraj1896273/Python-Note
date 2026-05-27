@@ -218,6 +218,8 @@ Code reusability
 Reducing duplicate code
 Creating parent-child relationships between classes.
 
+## Single Inheritance :- 
+
 ```python
 class Animal:
     def sound(self):
