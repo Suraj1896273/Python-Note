@@ -236,3 +236,37 @@ d.sound()
 3. Easy to manage
 4. Improves readability
 5. Supports polymorphism
+
+
+## What is super() Method?
+The super() method is used to access methods and constructors of the parent class from the child class.
+
+It is mainly used in Inheritance.
+
+## Why Use super()?
+
+Suppose a child class wants to use the parent class constructor or methods without rewriting the same code.
+
+## Features :-
+
+1. Reuse parent class code.
+2. Avoid duplicate code.
+3. Call parent constructor easily.
+4. Easier in large project.
+```python
+class Company:
+    def __init__(self, name):
+        self.name = name
+
+class Employee(Company):
+    def __init__(self, name, salary):
+        super().__init__(name)
+        self.salary = salary
+
+    def show(self):
+        print("Name :", self.name)
+        print("Salary :", self.salary)
+
+e1 = Employee("Suraj", 50000)
+e1.show()
+```
