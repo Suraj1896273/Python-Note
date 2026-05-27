@@ -337,6 +337,7 @@ Python searches classes from left to right.
 ## Check MRO :-
 
 (1) print(C.__mro__)
+
 (2)print(C.mro())
 
 ## Output :-
