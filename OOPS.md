@@ -364,3 +364,225 @@ Python searches classes from left to right.
 | Debugging Hard  | Errors harder to find              |
 | Diamond Problem | Ambiguity may happen               |
 
+
+## Multilevel Inheritance
+
+## Definition:-
+
+Multilevel Inheritance is a type of inheritance where one class inherits from another class, and then a third class inherits from that derived class. This creates a chain of inheritance.
+
+## In simple words:
+
+Grandparent Class → Parent Class → Child Class
+
+The child class can access the properties and methods of both the parent and grandparent classes.
+
+## Syntax:
+
+```python
+class A:
+    pass
+
+class B(A):
+    pass
+
+class C(B):
+    pass
+```
+Here:
+
+A = Base (Parent) Class
+B = Derived Class of A
+C = Derived Class of B
+
+C can access features of both A and B.
+
+## Diagram
+      A
+      |
+      B
+      |
+      C
+      
+## Example Program:
+
+```python
+class Human:
+    def eat(self):
+        print("I can eat")
+
+class Male(Human):
+    def sleep(self):
+        print("I can sleep")
+
+class Boy(Male):
+    def play(self):
+        print("I can play")
+
+boy1 = Boy()
+
+boy1.eat()
+boy1.sleep()
+boy1.play()
+```
+## Output
+
+I can eat
+I can sleep
+I can play
+
+## How It Works
+
+Step 1
+
+Human class contains:
+
+eat()
+Step 2
+
+Male inherits Human:
+
+class Male(Human):
+
+Now Male can use:
+
+eat()
+sleep()
+Step 3
+
+Boy inherits Male:
+
+class Boy(Male):
+
+Now Boy can use:
+
+eat()
+sleep()
+play()
+
+## Constructor Example:
+```python
+class Person:
+    def __init__(self, name):
+        self.name = name
+
+class Student(Person):
+    def __init__(self, name, course):
+        super().__init__(name)
+        self.course = course
+
+class Monitor(Student):
+    def __init__(self, name, course, section):
+        super().__init__(name, course)
+        self.section = section
+
+obj = Monitor("Suraj", "CSE", "A")
+
+print(obj.name)
+print(obj.course)
+print(obj.section)
+```
+Output:
+
+Suraj
+CSE
+A
+
+## Method Resolution Order (MRO)
+
+Python searches for methods in this order:
+
+Boy
+ ↓
+Male
+ ↓
+Human
+ ↓
+object
+
+Example:
+
+```python
+class Human:
+    def show(self):
+        print("Human Class")
+
+class Male(Human):
+    pass
+
+class Boy(Male):
+    pass
+
+b = Boy()
+b.show()
+```
+
+## Output:
+
+Human Class
+
+Python first checks Boy, then Male, then Human.
+
+## Real-Life Example:
+
+```python
+class Person:
+    def get_name(self):
+        print("Person Details")
+
+class Student(Person):
+    def get_course(self):
+        print("Course Details")
+
+class RegularStudent(Student):
+    def get_attendance(self):
+        print("Attendance Details")
+```
+
+## Here:
+
+Person stores basic information.
+
+Student stores academic information.
+
+RegularStudent stores attendance information.
+
+## Advantages of Multilevel Inheritance:-
+
+1. Code Reusability:-
+
+The same code can be used multiple times.
+
+2. Easy Maintenance:-
+
+Changes in the base class automatically affect derived classes.
+
+3. Better Organization:-
+
+Programs can be divided into logical levels.
+
+4. Reduced Redundancy:-
+
+No need to write the same code repeatedly.
+
+5. Supports Hierarchical Design:-
+
+Useful for large projects.
+
+## Disadvantages of Multilevel Inheritance:-
+
+1. Increased Complexity:-
+
+Long inheritance chains can be difficult to understand.
+
+2. Difficult Debugging:-
+
+Errors may originate from any level of the hierarchy.
+
+3. Tight Coupling:-
+
+Changes in parent classes can affect child classes.
+
+4. Performance Overhead:-
+
+Method lookup takes slightly more time through multiple levels.
