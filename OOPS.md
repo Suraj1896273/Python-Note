@@ -205,8 +205,9 @@ class Addition:
 | Uses `cls` as first parameter  |Uses `cls` as first parameter|  |No uses self or cls
 
 | Can access instance variables | Can access class variables      | Cannot directly access instance/class variables |
-| Called using object           | Called using class/object       | Called using class/object                       |
-| Most commonly used            | Used for class-level operations | Used for helper tasks                           |
+
+| Called using object           | Called using class/object       | Called using class/object                       
+| Most commonly used            | Used for class-level operations | Used for helper tasks                           
 
 
 ## What is Inheritance ?
