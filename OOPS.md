@@ -202,7 +202,7 @@ class Addition:
 | Instance Method               | Class Method                    | Static Method                                   |
 | ----------------------------- | ------------------------------- | ----------------------------------------------- |
 | Works with object data        | Works with class data           | Utility/helper function                         |
-| Uses `self`                   | Uses `cls`                      | No `self` or `cls`                              |
+| Uses `self` as the            | Uses `cls` as                      |Uses  No `self` or `cls`          first parameter  |                first parameter
 | Can access instance variables | Can access class variables      | Cannot directly access instance/class variables |
 | Called using object           | Called using class/object       | Called using class/object                       |
 | Most commonly used            | Used for class-level operations | Used for helper tasks                           |
