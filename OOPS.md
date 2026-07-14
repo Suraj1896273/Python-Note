@@ -199,15 +199,15 @@ class Addition:
 
 ## Instance Method VS Class Mthod VS Static Method
 
-| Instance Method               | Class Method                    | Static Method                                   |
-| ----------------------------- | ------------------------------- | ----------------------------------------------- |
-| Works with object data        | Works with class data           | Utility/helper function                         
-| Uses `cls` as first parameter  |Uses `cls` as first parameter|  |No uses self or cls
+| Instance Method                                       | Class Method                                                         | Static Method                                      |
+| ----------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------- |
+| Works with **object (instance) data**                 | Works with **class data**                                            | Utility/helper function                            |
+| Uses **`self`** as the first parameter                | Uses **`cls`** as the first parameter                                | Uses **no `self` or `cls`**                        |
+| Can access **instance variables** and class variables | Can access **class variables** (and create/modify them)              | Cannot directly access instance or class variables |
+| Usually called using an **object**                    | Can be called using the **class or an object**                       | Can be called using the **class or an object**     |
+| Most commonly used for **object-specific behavior**   | Used for **class-level operations** (e.g., alternative constructors) | Used for **helper/utility tasks**                  |
 
-| Can access instance variables | Can access class variables      | Cannot directly access instance/class variables |
 
-| Called using object           | Called using class/object       | Called using class/object                       
-| Most commonly used            | Used for class-level operations | Used for helper tasks                           
 
 
 ## What is Inheritance ?
