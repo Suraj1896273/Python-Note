@@ -221,8 +221,7 @@ Reducing duplicate code
 Creating parent-child relationships between classes.
 
 ##What is Method Overriding?
-
-Method Overriding is an Object-Oriented Programming (OOP) concept where a child class provides its own implementation of a method that is already defined in the parent class.
+Method overriding is the process of redefining a parent class method in the child class using the same method name and parameters.
 
 The method name must be the same.
 The parameters should usually be the same.
@@ -252,29 +251,6 @@ Cat meows
 
 Here every animal has a sound() method, but each animal behaves differently.
 
-## Single Inheritance :- 
-
-```python
-class Animal:
-    def sound(self):
-        print("Animal makes sound")
-
-class Dog(Animal):
-    pass
-
-d = Dog()
-d.sound()
-```
-##Why Use Method Overriding?
-
-Method overriding is used to:
-
-Change the behavior of a parent class method.
-Provide a specialized implementation.
-Achieve Runtime Polymorphism.
-
-##Method Overloading vs Method Overriding
-
 # Method Overloading vs Method Overriding
 
 | **Method Overloading** | **Method Overriding** |
@@ -286,7 +262,36 @@ Achieve Runtime Polymorphism.
 | Used to perform **different tasks using the same method name**. | Used to **change or customize the behavior** of an inherited method. |
 | Achieves **Compile-time Polymorphism** (in languages like Java and C++). | Achieves **Runtime Polymorphism**. |
 | Considered a **compile-time concept** (in languages that support it). | Considered a **runtime concept**. |
+
+##Advantages:-
+
+Achieves runtime polymorphism.
+Makes code more flexible.
+Improves reusability.
+Allows customization of inherited methods.
+Makes programs easier to maintain.
+
+##Disadvantages:-
+Can make code harder to follow if many classes override the same method.
+Incorrect overriding may introduce bugs.
+Overridden parent behavior is hidden unless super() is used.
+
+## Single Inheritance :- Single inheritance is a type of inheritance in which one child class inherits the properties and methods of one parent class.
+
+```python
+class Parent:
+    def show(self):
+        print("This is the Parent class.")
+
+class Child(Parent):
+    def display(self):
+        print("This is the Child class.")
+
+obj = Child()
+obj.show()      # Inherited from Parent
+obj.display()   # Child's own method
 ```
+
 ## Advantages :- 
 
 1. Reuse code
@@ -328,6 +333,7 @@ class Employee(Company):
 e1 = Employee("Suraj", 50000)
 e1.show()
 ```
+
 ## What is Multiple Inheritance ?
 Multiple Inheritance means :- One child class inherits properties and methods from more than one parent class.
 
