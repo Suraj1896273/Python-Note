@@ -220,6 +220,38 @@ Code reusability
 Reducing duplicate code
 Creating parent-child relationships between classes.
 
+##What is Method Overriding?
+
+Method Overriding is an Object-Oriented Programming (OOP) concept where a child class provides its own implementation of a method that is already defined in the parent class.
+
+The method name must be the same.
+The parameters should usually be the same.
+When an object of the child class calls the method, the child class version is executed instead of the parent's version.
+
+```python class Animal:
+    def sound(self):
+        print("Animal makes a sound")
+
+class Dog(Animal):
+    def sound(self):
+        print("Dog barks")
+
+class Cat(Animal):
+    def sound(self):
+        print("Cat meows")
+
+dog = Dog()
+cat = Cat()
+
+dog.sound()
+cat.sound()
+```
+##Output
+Dog barks
+Cat meows
+
+Here every animal has a sound() method, but each animal behaves differently.
+
 ## Single Inheritance :- 
 
 ```python
@@ -232,6 +264,28 @@ class Dog(Animal):
 
 d = Dog()
 d.sound()
+```
+##Why Use Method Overriding?
+
+Method overriding is used to:
+
+Change the behavior of a parent class method.
+Provide a specialized implementation.
+Achieve Runtime Polymorphism.
+
+##Method Overloading vs Method Overriding
+
+# Method Overloading vs Method Overriding
+
+| **Method Overloading** | **Method Overriding** |
+|------------------------|-----------------------|
+| Same method name with **different parameters**. | Same method name with the **same parameters**. |
+| Python does **not support true method overloading** directly. | Python **fully supports method overriding**. |
+| Occurs **within the same class**. | Occurs **between a parent class and a child class**. |
+| **Inheritance is not required.** | **Inheritance is required.** |
+| Used to perform **different tasks using the same method name**. | Used to **change or customize the behavior** of an inherited method. |
+| Achieves **Compile-time Polymorphism** (in languages like Java and C++). | Achieves **Runtime Polymorphism**. |
+| Considered a **compile-time concept** (in languages that support it). | Considered a **runtime concept**. |
 ```
 ## Advantages :- 
 
