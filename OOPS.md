@@ -216,16 +216,21 @@ Inheritance is an OOP concept where one class acquires the properties and method
 
 It helps in:
 
-Code reusability
-Reducing duplicate code
-Creating parent-child relationships between classes.
+i)Code reusability
 
-##What is Method Overriding?
+ii)Reducing duplicate code
+
+iii)Creating parent-child relationships between classes.
+
+## What is Method Overriding?
+
 Method overriding is the process of redefining a parent class method in the child class using the same method name and parameters.
 
-The method name must be the same.
-The parameters should usually be the same.
-When an object of the child class calls the method, the child class version is executed instead of the parent's version.
+i)The method name must be the same.
+
+ii)The parameters should usually be the same.
+
+iii)SWhen an object of the child class calls the method, the child class version is executed instead of the parent's version.
 
 ```python class Animal:
     def sound(self):
