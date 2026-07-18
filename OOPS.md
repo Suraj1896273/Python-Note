@@ -1,4 +1,4 @@
-##  What is OOP?
+## What is OOP?
 
 OOP stands for Object-Oriented Programming.
 
@@ -250,13 +250,13 @@ cat = Cat()
 dog.sound()
 cat.sound()
 ```
-##Output
+## Output
 Dog barks
 Cat meows
 
 Here every animal has a sound() method, but each animal behaves differently.
 
-# Method Overloading vs Method Overriding
+## Method Overloading vs Method Overriding
 
 | **Method Overloading** | **Method Overriding** |
 |------------------------|-----------------------|
@@ -268,7 +268,7 @@ Here every animal has a sound() method, but each animal behaves differently.
 | Achieves **Compile-time Polymorphism** (in languages like Java and C++). | Achieves **Runtime Polymorphism**. |
 | Considered a **compile-time concept** (in languages that support it). | Considered a **runtime concept**. |
 
-##Advantages:-
+## Advantages:-
 
 Achieves runtime polymorphism.
 Makes code more flexible.
@@ -276,7 +276,7 @@ Improves reusability.
 Allows customization of inherited methods.
 Makes programs easier to maintain.
 
-##Disadvantages:-
+## Disadvantages:-
 Can make code harder to follow if many classes override the same method.
 Incorrect overriding may introduce bugs.
 Overridden parent behavior is hidden unless super() is used.
