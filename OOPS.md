@@ -383,29 +383,50 @@ c.show()
 
 ## Method Resolution Order (MRO) :- 
 
+Method Resolution Order (MRO) is the order in which Python searches classes to find a method or attribute. It is mainly used in inheritance, especially multiple inheritance, to determine which method should be called first.
+
+## Rules of MRO:-
+
+i)Python first checks the current class.
+
+ii)If not found, it checks the parent classes from left to right.
+
+iii)If still not found, it checks the object class.
+
 ```python
-class A:
-    def __init__(self):
-        print("Constructor A")
+class Human:
+    def work(self):
+        print("I can work")
 
-class B:
-    def __init__(self):
-        print("Constructor B")
+class Male:
+    def work(self):
+        print("I can code")
 
-class C(A, B):
-    def __init__(self):
-        super().__init__()
+class Boy(Human, Male):
+    pass
 
-c = C()
+obj = Boy()
+obj.work()
 ```
+## Output:-
+I can work
 
-Python searches classes from left to right.
+## Reason: Human comes before Male, so Python checks Human first.
+
+## Diagram :-
+Boy
+ ↓
+Human
+ ↓
+Male
+ ↓
+object
 
 ## Check MRO :-
 
-(1) print(C.__mro__)
+(1) Boy.__mro__
 
-(2)print(C.mro())
+(2) Boy.mro()
 
 ## Output :-
 (<class '__main__.C'>,
@@ -414,24 +435,23 @@ Python searches classes from left to right.
  <class 'object'>)
 
  ## Advantages of Multiple Inheritance :- 
+
+ i)Multiple inheritance allows a class to inherit features from more than one parent class.
+
+ ii)It helps in code reuse, because methods and attributes from multiple classes can be used without rewriting them.
+
+ iii)It also reduces code duplication, making programs shorter and easier to maintain.
+
+ iv)t also improves code organization.
+
+ ## Disadvantages:-
+
+ i)Multiple inheritance can make programs more complex.
+
+ ii)It may create confusion if different parent classes contain methods with the same name.
+
+ iii)Because of the complex inheritance structure, debugging becomes more difficult.
  
- | Advantage           | Explanation                           |
-| ------------------- | ------------------------------------- |
-| Code Reuse          | Reuse methods from multiple classes   |
-| Less Repetition     | Avoid duplicate code                  |
-| Flexible Design     | Combine features easily               |
-| Better Organization | Split features into different classes |
-
-## Disadvantages of  Multiple Inheritance :-
-
-| Disadvantage    | Explanation                        |
-| --------------- | ---------------------------------- |
-| Complexity      | Code becomes difficult             |
-| Confusion       | Same method names create confusion |
-| Debugging Hard  | Errors harder to find              |
-| Diamond Problem | Ambiguity may happen               |
-
-
 ## Multilevel Inheritance
 
 ## Definition:-
