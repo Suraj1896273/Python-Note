@@ -657,3 +657,74 @@ RegularStudent stores attendance information.
 - Complex raed ability.
 
 - Too Many Levels Make Code Confusing
+
+## Hierarchical Inheritance (Python)
+## Definition:-
+
+Hierarchical Inheritance is a type of inheritance where one parent class is inherited by two or more child classes.
+
+## In simple words:
+
+One Parent → Many Child Classes
+
+## Diagram :-
+          Person
+         /      \
+        /        \
+   Student     Teacher
+
+   Here,
+
+- Person is the Parent (Base) Class.
+- Student and Teacher are Child (Derived) Classes.
+
+- Both child classes inherit the properties and methods of the Person class.
+
+```python
+ class Person:
+    def __init__(self, name):
+        self.name = name
+
+    def display(self):
+        print("Name:", self.name)
+
+
+class Student(Person):
+    def study(self):
+        print("Student is studying")
+
+
+class Teacher(Person):
+    def teach(self):
+        print("Teacher is teaching")
+
+
+student = Student("Suraj")
+teacher = Teacher("Rahul")
+
+student.display()
+student.study()
+
+teacher.display()
+teacher.teach()
+```
+## Output:-
+Name: Suraj
+Student is studying
+Name: Rahul
+Teacher is teaching
+
+## Advantages:-
+
+- Code Reusability.
+- Less Code Duplication.
+- Easy Maintenance.
+- Easy to Add New Child Classes.
+- Represents Real-Life Relationships.
+  
+## Disadvantages:-
+
+- Parent Class Changes Affect All Child Classes.
+- Code Can Become Complex.
+- Difficult to Debug.
+- More Child Classes Make the Program Hard to Manage.
