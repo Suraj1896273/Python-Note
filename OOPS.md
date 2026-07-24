@@ -636,40 +636,24 @@ RegularStudent stores attendance information.
 
 ## Advantages of Multilevel Inheritance:-
 
-1. Code Reusability:-
+- Code reusability.
 
-The same code can be used multiple times.
+- Reduce code duplication.
 
-2. Easy Maintenance:-
+- Easy to extend
 
-Changes in the base class automatically affect derived classes.
+- Easy maintenance.
 
-3. Better Organization:-
-
-Programs can be divided into logical levels.
-
-4. Reduced Redundancy:-
-
-No need to write the same code repeatedly.
-
-5. Supports Hierarchical Design:-
-
-Useful for large projects.
-
+- Represents Real-Life Relationships
+- 
 ## Disadvantages of Multilevel Inheritance:-
 
-1. Increased Complexity:-
+- Complex Code.
+  
+- Difficult Debugging.
+  
+- Parent Changes Affect Child Classes
 
-Long inheritance chains can be difficult to understand.
+- Complex raed ability.
 
-2. Difficult Debugging:-
-
-Errors may originate from any level of the hierarchy.
-
-3. Tight Coupling:-
-
-Changes in parent classes can affect child classes.
-
-4. Performance Overhead:-
-
-Method lookup takes slightly more time through multiple levels.
+- Too Many Levels Make Code Confusing
