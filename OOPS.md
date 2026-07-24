@@ -645,7 +645,7 @@ RegularStudent stores attendance information.
 - Easy maintenance.
 
 - Represents Real-Life Relationships
-- 
+
 ## Disadvantages of Multilevel Inheritance:-
 
 - Complex Code.
