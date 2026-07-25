@@ -149,13 +149,20 @@ Types of Methods in Python
   An instance method is a method that belongs to an object (instance) of a class. It always takes self as its first parameter, which refers to the current object.
 
 ```python
-   class car :
-     def __init__(self , brand):
-         self.brand = brand
-     def display(self):
+ class Student:
 
-   C1 = car("BMW")
-   C1.disply
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def display(self):
+        print("Name:", self.name)
+        print("Age:", self.age)
+
+
+s1 = Student("Suraj", 20)
+
+s1.display()
 ```
 
 
