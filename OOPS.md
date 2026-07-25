@@ -671,7 +671,7 @@ One Parent → Many Child Classes
           Person
          /      \
         /        \
-   Student     Teacher
+    Student     Teacher
 
    Here,
 
