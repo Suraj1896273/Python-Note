@@ -222,7 +222,6 @@ class Addition:
 
 
 
-
 ## What is Inheritance ?
 
 Inheritance is an OOP concept where one class acquires the properties and methods of another class.
