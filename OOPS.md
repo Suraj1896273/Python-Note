@@ -133,6 +133,7 @@ class Student:
 s1 = Student("Suraj")
 s1.show()
 ```
+
 ## Difference between Function and Method
 
 | Function                           | Method                              |
