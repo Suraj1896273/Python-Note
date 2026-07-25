@@ -143,8 +143,6 @@ s1.show()
 | Syntax: `function()`               | Syntax: `object.method()`           |
 | Cannot directly access object data | Can access object data using `self` |           
 
-
-Types of Methods in Python
 ## 1. Instance Method  :-  
   An instance method is a method that belongs to an object (instance) of a class. It always takes self as its first parameter, which refers to the current object.
 
@@ -196,7 +194,11 @@ s1.display()
    Car.show()
 ```
 
-## 3. Static Method  :-  Independent utility method.
+## 3. Static Method  :-  
+A static method is a method that belongs to the class, not to any object.
+It does not use self or cls.It created using @staticmethod.
+
+- It can be called directly using the class name, so there is no need to create an object.
 
 ```python
 class Addition:
