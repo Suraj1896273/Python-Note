@@ -748,10 +748,10 @@ Hybrid Inheritance is a combination of two or more types of inheritance in a sin
 
 It combines inheritance types such as:-
 
--Single Inheritance
--Multiple Inheritance
--Multilevel Inheritance
--Hierarchical Inheritance
+- Single Inheritance
+- Multiple Inheritance
+- Multilevel Inheritance
+- Hierarchical Inheritance
 
 ## In simple words:
 
@@ -769,8 +769,8 @@ Example:
 
 Here,
 
--B and C inherit from A (Hierarchical Inheritance).
--D inherits from both B and C (Multiple Inheritance).
+- B and C inherit from A (Hierarchical Inheritance).
+- D inherits from both B and C (Multiple Inheritance).
 
 Since two inheritance types are combined, it is called Hybrid Inheritance.
 
@@ -810,12 +810,12 @@ Teacher Details
 Monitor Details
 
 ## How it Works:-
--Step 1
+- Step 1
 
 Person is the base class.
 
 Person
--Step 2
+- Step 2
 
 Student and Teacher inherit from Person.
 
@@ -825,7 +825,7 @@ Student and Teacher inherit from Person.
 
 This is Hierarchical Inheritance.
 
--Step 3
+- Step 3
 
 Monitor inherits from both Student and Teacher.
 
@@ -849,35 +849,35 @@ Since Hierarchical + Multiple are combined, it becomes Hybrid Inheritance.
 
 ## Advantages of Hybrid Inheritance:-
 
--Code Reusability
+- Code Reusability
 
--Common code can be written once and reused by many classes.
+- Common code can be written once and reused by many classes.
 
--Reduces Duplicate Code
+- Reduces Duplicate Code
 
--The same methods and attributes do not need to be written repeatedly.
+- The same methods and attributes do not need to be written repeatedly.
 
--Flexible Design
+- Flexible Design
 
--Different inheritance relationships can be combined in one project.
+- Different inheritance relationships can be combined in one project.
 
--Better Organization
+- Better Organization
 
 ## Disadvantages of Hybrid Inheritance:-
 
--Complex Structure
+- Complex Structure
 
-T-he class hierarchy can become difficult to understand.
+- The class hierarchy can become difficult to understand.
 
--Diamond Problem
+- Diamond Problem
 
--Hard to Debug
+- Hard to Debug
 
--Maintenance Becomes Difficult
+- Maintenance Becomes Difficult
 
--Changes in one parent class can affect many child classes.
+- Changes in one parent class can affect many child classes.
 
--Not Suitable for Small Projects
+-N ot Suitable for Small Projects
 
 ## Method Resolution Order (MRO):-
 
