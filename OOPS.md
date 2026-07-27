@@ -821,7 +821,7 @@ Student and Teacher inherit from Person.
 
         Person
        /      \
-    Student      Teacher
+    Student  Teacher
 
 This is Hierarchical Inheritance.
 
@@ -877,7 +877,7 @@ Since Hierarchical + Multiple are combined, it becomes Hybrid Inheritance.
 
 - Changes in one parent class can affect many child classes.
 
--N ot Suitable for Small Projects
+- Not Suitable for Small Projects
 
 ## Method Resolution Order (MRO):-
 
