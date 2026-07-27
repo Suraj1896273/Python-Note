@@ -740,3 +740,183 @@ Teacher is teaching
 - Code Can Become Complex.
 - Difficult to Debug.
 - More Child Classes Make the Program Hard to Manage.
+
+## Hybrid Inheritance:-
+## What is Hybrid Inheritance?
+
+Hybrid Inheritance is a combination of two or more types of inheritance in a single program.
+
+It combines inheritance types such as:-
+
+-Single Inheritance
+-Multiple Inheritance
+-Multilevel Inheritance
+-Hierarchical Inheritance
+
+## In simple words:
+
+Hybrid Inheritance means using different inheritance types together to build a complex class structure.
+
+## Structure
+
+Example:
+
+        A
+       / \
+      B   C
+       \ /
+        D
+
+Here,
+
+-B and C inherit from A (Hierarchical Inheritance).
+-D inherits from both B and C (Multiple Inheritance).
+
+Since two inheritance types are combined, it is called Hybrid Inheritance.
+
+Python Example:-
+```python
+class Person:
+    def show_person(self):
+        print("Person Details")
+
+
+class Student(Person):
+    def show_student(self):
+        print("Student Details")
+
+
+class Teacher(Person):
+    def show_teacher(self):
+        print("Teacher Details")
+
+
+class Monitor(Student, Teacher):
+    def show_monitor(self):
+        print("Monitor Details")
+
+
+obj = Monitor()
+
+obj.show_person()
+obj.show_student()
+obj.show_teacher()
+obj.show_monitor()
+```
+## Output
+Person Details
+Student Details
+Teacher Details
+Monitor Details
+
+## How it Works:-
+-Step 1
+
+Person is the base class.
+
+Person
+-Step 2
+
+Student and Teacher inherit from Person.
+
+        Person
+       /      \
+ Student      Teacher
+
+This is Hierarchical Inheritance.
+
+-Step 3
+
+Monitor inherits from both Student and Teacher.
+
+Student
+     \
+      \
+     Monitor
+      /
+Teacher
+
+This is Multiple Inheritance.
+
+Final Structure
+          Person
+         /      \
+    Student    Teacher
+         \      /
+         Monitor
+
+Since Hierarchical + Multiple are combined, it becomes Hybrid Inheritance.
+
+## Advantages of Hybrid Inheritance:-
+
+-Code Reusability
+
+-Common code can be written once and reused by many classes.
+
+-Reduces Duplicate Code
+
+-The same methods and attributes do not need to be written repeatedly.
+
+-Flexible Design
+
+-Different inheritance relationships can be combined in one project.
+
+-Better Organization
+
+## Disadvantages of Hybrid Inheritance:-
+
+-Complex Structure
+
+T-he class hierarchy can become difficult to understand.
+
+-Diamond Problem
+
+-Hard to Debug
+
+-Maintenance Becomes Difficult
+
+-Changes in one parent class can affect many child classes.
+
+-Not Suitable for Small Projects
+
+## Method Resolution Order (MRO):-
+
+Python uses Method Resolution Order (MRO) to decide which parent's method should be called first.
+
+Example:
+```python
+class A:
+    def show(self):
+        print("A")
+
+
+class B(A):
+    def show(self):
+        print("B")
+
+
+class C(A):
+    def show(self):
+        print("C")
+
+
+class D(B, C):
+    pass
+
+
+obj = D()
+obj.show()
+```
+## Output:- B
+
+Why?
+
+Python checks classes in this order:
+
+print(D.mro())
+
+Output:
+
+[D, B, C, A, object]
+
+So Python finds show() in B first and calls it.
