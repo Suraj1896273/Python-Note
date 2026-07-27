@@ -821,7 +821,7 @@ Student and Teacher inherit from Person.
 
         Person
        /      \
- Student      Teacher
+    Student      Teacher
 
 This is Hierarchical Inheritance.
 
