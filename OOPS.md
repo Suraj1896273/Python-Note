@@ -920,3 +920,18 @@ Output:
 [D, B, C, A, object]
 
 So Python finds show() in B first and calls it.
+
+## Args and Kwargs in Python:-
+
+## Args:- *args is a special syntax in Python that allows a function to accept a variable number of positional arguments. Inside the function, these arguments are stored as a tuple."
+
+```python
+def add(*args):
+    return sum(args)
+
+print(add(10, 20))
+print(add(10, 20, 30))
+```
+## Output:-
+30
+60
