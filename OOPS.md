@@ -932,6 +932,26 @@ def add(*args):
 print(add(10, 20))
 print(add(10, 20, 30))
 ```
-## Output:-
+# Output:-
 30
 60
+
+## Kwargs:- **kwargs allows a function to accept any number of keyword arguments. These arguments are stored in a dictionary.
+
+```python
+def student(**kwargs):
+    print(kwargs)
+
+student(name="Suraj", age=21, department="CSE")
+```
+
+# Output:-{'name': 'Suraj', 'age': 21, 'department': 'CSE'}
+
+## Difference Between `*args` and `**kwargs`
+
+| *args | **kwargs |
+|---------|------------|
+| Accepts positional arguments | Accepts keyword arguments |
+| Stored as a **tuple** | Stored as a **dictionary** |
+| Uses `*` | Uses `**` |
+| No parameter names | Parameter names with values |
