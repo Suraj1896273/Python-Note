@@ -953,5 +953,38 @@ student(name="Suraj", age=21, department="CSE")
 |---------|------------|
 | Accepts positional arguments | Accepts keyword arguments |
 | Stored as a **tuple** | Stored as a **dictionary** |
-| Uses `*` | Uses `**` |
-| No parameter names | Parameter names with values |
+
+### Encapsulation:-
+
+Definition:-
+
+Encapsulation means keeping data (variables) and methods (functions) together inside one class and protecting the data from direct access.
+
+## Easy Definition:-
+
+- Put data + functions inside one class.
+- Do not allow anyone to change important data directly.
+- Access the data using methods.
+- 
+## Real-Life Example
+
+🏧 ATM Machine
+
+You can:
+
+- Check balance ✅
+- Withdraw money ✅
+- Deposit money ✅
+
+But you cannot directly change your bank balance.
+
+Your balance is protected.
+
+This is Encapsulation.
+
+## Why do we use Encapsulation?
+- Protect data
+- Prevent wrong changes
+- Improve security
+- Keep code organized
+- Make programs easier to maintain
