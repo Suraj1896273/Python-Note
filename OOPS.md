@@ -1094,7 +1094,8 @@ print(student.__marks)
 
 Python gives an error.
 
-Correct Access
+#### Correct Access
+```python
 class Student:
 
     def __init__(self):
@@ -1106,6 +1107,7 @@ class Student:
 s = Student()
 
 s.show()
+```
 
 ### Output:-
 
