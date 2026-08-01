@@ -945,7 +945,7 @@ def student(**kwargs):
 student(name="Suraj", age=21, department="CSE")
 ```
 
-# Output:-{'name': 'Suraj', 'age': 21, 'department': 'CSE'}
+## Output:-{'name': 'Suraj', 'age': 21, 'department': 'CSE'}
 
 ## Difference Between `*args` and `**kwargs`
 
@@ -954,37 +954,159 @@ student(name="Suraj", age=21, department="CSE")
 | Accepts positional arguments | Accepts keyword arguments |
 | Stored as a **tuple** | Stored as a **dictionary** |
 
-### Encapsulation:-
+## Encapsulation:-
 
-Definition:-
+### Definition:-
 
-Encapsulation means keeping data (variables) and methods (functions) together inside one class and protecting the data from direct access.
+Encapsulation means wrapping data (variables) and methods (functions) into a single unit (class) and protecting the data from direct access.
 
-## Easy Definition:-
+In simple words,
 
-- Put data + functions inside one class.
-- Do not allow anyone to change important data directly.
-- Access the data using methods.
-- 
-## Real-Life Example
+Encapsulation = Data + Methods + Data Protection
 
-🏧 ATM Machine
+## Real Life Example
 
-You can:
+### Think about an ATM Machine.
 
-- Check balance ✅
-- Withdraw money ✅
-- Deposit money ✅
+You only use:
 
-But you cannot directly change your bank balance.
+- Insert Card
+- Enter PIN
+- Withdraw Money
 
-Your balance is protected.
+### You cannot directly change:
 
-This is Encapsulation.
+- Bank Balance
+- PIN stored in database
+- Bank Server
 
-## Why do we use Encapsulation?
-- Protect data
-- Prevent wrong changes
-- Improve security
-- Keep code organized
-- Make programs easier to maintain
+### The ATM hides these details.
+
+## Advantages of Encapsulation:-
+
+- Protects data
+- Hides important information
+- Prevents invalid values
+- Makes code secure
+- Makes code easier to maintain
+- Reduces mistakes
+- Increases code reliability
+
+# Access Modifiers:-
+
+ Access Modifiers decide who can access variables and methods.
+
+### Python has 3 Access Modifiers.
+
+- Public
+- Protected
+- Private
+
+## Public Access Modifier:-
+
+### Definition:-
+
+Public members can be accessed from anywhere.
+
+They have no special symbol.
+
+Example:-
+```python
+class Student:
+
+    def __init__(self):
+        self.name = "Suraj"
+
+s = Student()
+
+print(s.name)
+```
+
+### Output:-
+
+Suraj
+
+#### We can also change it.
+
+s.name = "Rahul"
+
+print(s.name)
+
+### Output:-
+
+Rahul
+
+### Protected Access Modifier:-
+
+Protected members should be accessed only:=
+
+- Inside the class
+- Inside child classes
+
+- It starts with one underscore , _variable
+
+Example
+```python
+class Student:
+
+    def __init__(self):
+        self._marks = 90
+
+print(student._marks)
+```
+
+Python allows this.
+
+But it is not recommended.
+
+Important
+
+Protected is only a convention.
+
+Python does not stop you.
+
+It simply tells programmers:
+
+"Please don't access this outside the class."
+
+## Private Access Modifier:-
+### Definition:-
+
+Private members can be accessed only inside the class.
+
+They begin with two underscores. __variable
+
+Example
+```python
+class Student:
+
+    def __init__(self):
+        self.__marks = 95
+```
+
+Now
+
+print(student.__marks)
+
+### Output:-
+
+- AttributeError
+
+Python gives an error.
+
+Correct Access
+class Student:
+
+    def __init__(self):
+        self.__marks = 95
+
+    def show(self):
+        print(self.__marks)
+
+s = Student()
+
+s.show()
+
+### Output:-
+
+95
