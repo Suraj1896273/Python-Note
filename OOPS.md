@@ -1112,3 +1112,156 @@ s.show()
 ### Output:-
 
 95
+
+
+## Getter and Setter in Python OOP:-
+
+# What is a Getter?
+
+ A getter is a public method that returns (gets) the value of a private variable.
+ 
+```python
+def get_name(self):
+    return self.
+```
+
+```python
+class Student:
+    def __init__(self):
+        self.__name = "Suraj"
+
+    def get_name(self):
+        return self.__name
+
+
+s = Student()
+
+print(s.get_name())
+```
+### Output:-
+
+Suraj
+
+# What is a Setter?
+
+A setter is a public method that changes (sets) the value of a private variable.
+
+```python
+def set_name(self, name):
+    self.__name = name
+```
+- Example:-
+```python
+class Student:
+    def __init__(self):
+        self.__name = "Suraj"
+
+    def set_name(self, name):
+        self.__name = name
+
+    def get_name(self):
+        return self.__name
+
+
+s = Student()
+
+s.set_name("Rahul")
+
+print(s.get_name())
+```
+
+# Output:-
+
+Rahul
+
+# Why Use Getter and Setter?
+
+Suppose a student's age should never be negative.
+
+Without a setter:
+
+student.__age = -10
+
+This is invalid.
+
+Using a setter, we can check the value before updating it.
+
+- Example with Validation:-
+ ```python
+class Student:
+    def __init__(self):
+        self.__age = 18
+
+    def get_age(self):
+        return self.__age
+
+    def set_age(self, age):
+        if age >= 0:
+            self.__age = age
+        else:
+            print("Invalid age")
+
+
+s = Student()
+
+s.set_age(20)
+print(s.get_age())
+
+s.set_age(-5)
+print(s.get_age())
+```
+
+# Output:-
+
+20
+Invalid age
+20
+
+The age remains 20 because the invalid value is rejected.
+
+- Complete Example:-
+```python
+class BankAccount:
+    def __init__(self):
+        self.__balance = 1000
+
+    def get_balance(self):
+        return self.__balance
+
+    def set_balance(self, amount):
+        if amount >= 0:
+            self.__balance = amount
+        else:
+            print("Balance cannot be negative")
+
+
+account = BankAccount()
+
+print(account.get_balance())
+
+account.set_balance(5000)
+print(account.get_balance())
+
+account.set_balance(-500)
+print(account.get_balance())
+```
+
+# Output:-
+
+1000
+5000
+Balance cannot be negative
+5000
+
+## Getter VS Setter:-
+
+# Getter vs Setter
+
+| **Getter**                                              | **Setter**                                                |
+| ------------------------------------------------------- | --------------------------------------------------------- |
+| Used to **read (get)** the value of a private variable. | Used to **update (set)** the value of a private variable. |
+| Returns the variable's value.                           | Changes the variable's value.                             |
+| Usually has **no parameter** (except `self`).           | Takes **one parameter** (the new value).                  |
+| Does not modify data.                                   | Modifies data after validation.                           |
+| Mainly used for **accessing** data.                     | Mainly used for **updating** data.                        |
+
