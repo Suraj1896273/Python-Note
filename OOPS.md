@@ -1265,3 +1265,71 @@ Balance cannot be negative
 | Does not modify data.                                   | Modifies data after validation.                           |
 | Mainly used for **accessing** data.                     | Mainly used for **updating** data.                        |
 
+## @property Decoretor:-
+
+### Definition:-
+@property is a built-in Python decorator that allows a method to be accessed like an attribute without using ().
+
+```
+class Student:
+    def _init_(self):
+        self.__marks = 90
+
+
+    @property
+    def marks(self):
+        return self.__marks
+
+Usage:
+
+s = Student()
+print(s.marks)
+```
+### Otput:- 90
+
+- Here, marks() is a method, but we access it as: s.marks
+- 
+## @property.setter:-
+
+### Definition:-
+@property.setter is used to set or change the value of a property, usually while controlling access to a private variable.
+
+```
+class Student:
+    def _init_(self):
+        self.__marks = 90
+
+
+    @property
+    def marks(self):
+        return self.__marks
+
+
+    @marks.setter
+    def marks(self, value):
+        self.__marks = value
+
+Usage:
+
+s = Student()
+
+
+print(s.marks)    # Getter
+s.marks = 95      # Setter
+print(s.marks)
+```
+
+### Output:-
+
+90
+95
+
+- Easy Remember
+@property
+    ↓
+Get / Read the value
+
+
+- @property.setter
+    ↓
+Set / Change the value
