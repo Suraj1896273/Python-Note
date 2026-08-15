@@ -1333,3 +1333,182 @@ Get / Read the value
 - @property.setter
     ↓
 Set / Change the value
+
+
+## Polymorphisam :-
+
+  ### Definition:-
+
+Polymorphism is an OOP concept where the same method, function, or operator can perform different behaviors depending on the object or data type.
+
+```python
+class Dog:
+    def sound(self):
+        print("Bark")
+
+
+class Cat:
+    def sound(self):
+        print("Meow")
+
+
+dog = Dog()
+cat = Cat()
+
+dog.sound()
+cat.sound()
+```
+#### Output:-
+Bark
+Meow
+
+- Here, the same sound() method gives different results for different objects.
+
+## Duck Typing:-
+
+  ### Defination:-
+  Duck typing is a Python concept where an object's behavior is more important than its type. 
+  If an object provides the required method or behavior, it can be used.
+
+  - In simple words:
+
+    "If an object can perform the required operation, we can use that object.”
+
+```python
+    class Dog:
+    def sound(self):
+        print("Bark")
+
+
+class Cat:
+    def sound(self):
+        print("Meow")
+
+
+def make_sound(animal):
+    animal.sound()
+
+dog = Dog()
+cat = Cat()
+
+make_sound(dog)
+make_sound(cat)
+```
+
+### How it works:-
+
+The function:
+
+def make_sound(animal):
+    animal.sound()
+
+does not check whether animal is a Dog or Cat.
+
+It only expects that the object has a sound() method.
+
+- Dog has sound() → Bark
+- Cat has sound() → Meow
+
+So, different objects can be used with the same function if they provide the required method.
+
+
+### Advantages of Duck Typing:-
+
+- The same function can work with different types of objects.
+
+- We can write one function and use it with many different classes.
+
+- Different objects can have the same method name but different implementations.
+
+- We can create a new class and use it with an existing function if it provides the required method.
+
+### Disadvantages of Duck Typing:-
+
+- If the required method does not exist, an error occurs when the code runs.
+
+- In a large project, it can be difficult to know which objects a function accepts.
+
+- Different classes may have the same method name but different behavior.
+
+## Operator Overloading:-
+### Definition:-
+
+Operator overloading is a feature in Python that allows the same operator to perform different operations depending on the objects or data types.
+
+#### Meaning:-
+
+Operator overloading means defining how an operator such as +, -, >, <, or == should work with objects of a user-defined class.
+
+Python uses special methods (magic methods) to overload operators.
+
+- Example
+```python
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+
+    def __gt__(self, other):
+        return self.age > other.age
+
+
+
+
+p1 = Person("Suraj", 20)
+p2 = Person("Shreya", 19)
+
+
+if p1 > p2:
+    print("Suraj is older")
+else:
+    print("Shreya is older")
+```
+
+- Here:
+
+p1 > p2
+
+automatically calls:
+
+p1.__gt__(p2)
+
+Inside __gt__():
+
+self.age > other.age
+
+means:
+
+20 > 19
+
+So it returns True.
+
+Common Operator Overloading Methods
+Operator	Special Method
++	          __add__()
+-	          __sub__()
+*	          __mul__()
+/	          __truediv__()
+>             __gt__()
+<	          __lt__()
+==	          __eq__()
+!=	          __ne__()
+>=	          __ge__()
+<=	          __le__()
+
+### Why is it called Overloading?
+
+It is called overloading because the same operator can have different meanings in different situations.
+
+- For example:
+
+10 + 20
+
+performs addition, while:
+
+"Hello " + "World"
+
+joins two strings.
+
+We can also define the meaning of + for our own class using __add__().
+
