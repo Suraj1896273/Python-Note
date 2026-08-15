@@ -1270,7 +1270,7 @@ Balance cannot be negative
 ### Definition:-
 @property is a built-in Python decorator that allows a method to be accessed like an attribute without using ().
 
-```
+```python
 class Student:
     def _init_(self):
         self.__marks = 90
@@ -1294,7 +1294,7 @@ print(s.marks)
 ### Definition:-
 @property.setter is used to set or change the value of a property, usually while controlling access to a private variable.
 
-```
+```python
 class Student:
     def _init_(self):
         self.__marks = 90
