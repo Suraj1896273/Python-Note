@@ -58,8 +58,8 @@ Suraj
 
 Constructor is a special method:
 
-Automatically runs when object is created
-Used to initialize object data
+That runs automatically, when object is created
+ to initialize object data
 
 Constructor name:
 
