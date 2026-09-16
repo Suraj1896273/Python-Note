@@ -157,16 +157,6 @@ data = {
     "city": ["Kolkata", "Siliguri", "Delhi", "Mumbai"]
 }
 
-## Basic Difference Between Series and DataFrame
-
-- **Series** → Contains **one column** of data with an index.
-- **DataFrame** → Contains **multiple columns and rows** of data with indexes.
-
-### Easy Way to Remember
-
--> **Series → One Column**
-
--> **DataFrame → Multiple Columns + Rows**
 print(df)
 ```
 
