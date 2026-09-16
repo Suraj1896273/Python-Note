@@ -157,17 +157,15 @@ data = {
     "city": ["Kolkata", "Siliguri", "Delhi", "Mumbai"]
 }
 
-## Difference Between Series and DataFrame
+## Basic Difference Between Series and DataFrame
 
-| Series | DataFrame |
-|---|---|
-| Contains one column | Contains multiple columns |
-| One-dimensional | Two-dimensional |
-| Has rows and an index | Has rows, columns, and an index |
-| Similar to a single column | Similar to a complete table |
-| Created using `pd.Series()` | Created using `pd.DataFrame()` |
-| Example: `pd.Series([10, 20, 30])` | Example: `pd.DataFrame({"A": [10, 20, 30], "B": [40, 50, 60]})` 
-df = pd.DataFrame(data) |
+- **Series** → Contains **one column** of data with an index.
+- **DataFrame** → Contains **multiple columns and rows** of data with indexes.
 
+### Easy Way to Remember
+
+-> **Series → One Column**
+
+-> **DataFrame → Multiple Columns + Rows**
 print(df)
 ```
