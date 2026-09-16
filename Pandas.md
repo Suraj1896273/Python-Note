@@ -148,7 +148,7 @@ DataFrame is mainly used to:
 We can create a DataFrame using `pd.DataFrame()`.
 
 ```python
-import pandas as pd
+mport pandas as pd
 
 data = {
     "name": ["Rahul", "Priya", "Amit", "Sneha"],
@@ -157,7 +157,11 @@ data = {
     "city": ["Kolkata", "Siliguri", "Delhi", "Mumbai"]
 }
 
-print(df)
+print(data)
+
+Emply_Details = pd.DataFrame(data)
+print(Emply_Details)
+
 ```
 
 ## Basic Difference Between Series and DataFrame
