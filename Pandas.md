@@ -161,10 +161,3 @@ df = pd.DataFrame(data)
 
 print(df)
 ```
-# Output :- 
-
-    name  employee_id  age      city
-0  Rahul          101   25   Kolkata
-1  Priya          102   23  Siliguri
-2   Amit          103   28     Delhi
-3  Sneha          104   26    Mumbai
