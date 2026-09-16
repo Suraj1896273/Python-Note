@@ -60,3 +60,111 @@ s = pd.Series(["Ind", "Aus", "NZ"])
 
 print(s)
 ```
+
+# Pandas DataFrame
+
+## What is a Pandas DataFrame?
+
+A **Pandas DataFrame** is a two-dimensional data structure in Pandas.
+
+It stores data in the form of **rows and columns**, similar to an Excel spreadsheet or a database table.
+
+### Simple Definition
+
+> A Pandas DataFrame is a two-dimensional labeled data structure used to store, manipulate, and analyze structured data.
+
+---
+
+# Why Do We Use DataFrame?
+
+DataFrame is mainly used to:
+
+- Store data in rows and columns
+- Read data from CSV and Excel files
+- Clean data
+- Filter data
+- Sort data
+- Analyze data
+- Handle missing values
+- Group data
+- Perform calculations
+- Prepare data for Data Science and Machine Learning
+
+---
+
+# Creating a DataFrame
+
+We can create a DataFrame using `pd.DataFrame()`.
+
+```python
+import pandas as pd
+
+data = {
+    "name": ["Rahul", "Priya", "Amit", "Sneha"],
+    "employee_id": [101, 102, 103, 104],
+    "age": [25, 23, 28, 26],
+    "city": ["Kolkata", "Siliguri", "Delhi", "Mumbai"]
+}
+
+df = pd.DataFrame(data)
+
+print(df)
+```
+
+# Output :-
+# Pandas DataFrame
+
+## What is a Pandas DataFrame?
+
+A **Pandas DataFrame** is a two-dimensional data structure in Pandas.
+
+It stores data in the form of **rows and columns**, similar to an Excel spreadsheet or a database table.
+
+### Simple Definition
+
+> A Pandas DataFrame is a two-dimensional labeled data structure used to store, manipulate, and analyze structured data.
+
+---
+
+# Why Do We Use DataFrame?
+
+DataFrame is mainly used to:
+
+- Store data in rows and columns
+- Read data from CSV and Excel files
+- Clean data
+- Filter data
+- Sort data
+- Analyze data
+- Handle missing values
+- Group data
+- Perform calculations
+- Prepare data for Data Science and Machine Learning
+
+---
+
+# Creating a DataFrame
+
+We can create a DataFrame using `pd.DataFrame()`.
+
+```python
+import pandas as pd
+
+data = {
+    "name": ["Rahul", "Priya", "Amit", "Sneha"],
+    "employee_id": [101, 102, 103, 104],
+    "age": [25, 23, 28, 26],
+    "city": ["Kolkata", "Siliguri", "Delhi", "Mumbai"]
+}
+
+df = pd.DataFrame(data)
+
+print(df)
+```
+# Output :- 
+
+    name  employee_id  age      city
+0  Rahul          101   25   Kolkata
+1  Priya          102   23  Siliguri
+2   Amit          103   28     Delhi
+3  Sneha          104   26    Mumbai
