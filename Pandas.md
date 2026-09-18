@@ -174,3 +174,49 @@ print(Emply_Details)
 -> **Series → One Column**
 
 -> **DataFrame → Multiple Columns + Rows**
+
+
+# Pandas — `read_csv()`
+
+## What is `read_csv()`?
+
+`pd.read_csv()` is used to **read a CSV file** and convert it into a Pandas **DataFrame**.
+
+### Syntax
+
+```python
+pd.read_csv("file_name.csv")
+```
+
+### Example
+
+```python
+import pandas as pd
+
+data = pd.read_csv("students.csv")
+
+print(data)
+```
+
+### If File is in Another Folder
+
+```python
+data = pd.read_csv(r"C:\Users\YourName\Downloads\students.csv")
+```
+
+## What is CSV?
+
+**CSV** stands for **Comma-Separated Values**.
+
+It stores data in **rows and columns**.
+
+### CSV vs Excel
+
+| File    | Function          |
+| ------- | ----------------- |
+| `.csv`  | `pd.read_csv()`   |
+| `.xlsx` | `pd.read_excel()` |
+
+### Simple Definition
+
+> **`pd.read_csv()` reads a CSV file and returns a DataFrame.**
