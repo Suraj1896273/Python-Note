@@ -419,4 +419,40 @@ data = data.reset_index()
 * `set_index()`
 * `reset_index()`
 
+# Pandas Excel Functions
 
+## `pd.read_excel()`
+
+Reads an Excel file and converts it into a Pandas DataFrame.
+
+## `data.to_excel()`
+
+Saves a Pandas DataFrame as an Excel file.
+
+## `sheet_name`
+
+Selects a specific Excel sheet.
+
+## `skiprows`
+
+Skips specified rows while reading the Excel file.
+
+## `usecols`
+
+Reads only the specified columns.
+
+## `nrows`
+
+Reads only the specified number of rows.
+
+## `header`
+
+Specifies which row is used as the column header.
+
+## `index_col`
+
+Sets a column as the DataFrame index.
+
+## `dtype`
+
+Specifies the data type of columns.
