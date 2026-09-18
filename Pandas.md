@@ -403,8 +403,6 @@ data = data.reset_index()
 
 # Most Important Functions
 
-For beginner-level Pandas, focus first on:
-
 * `read_csv()`
 * `skiprows`
 * `to_csv()`
@@ -420,3 +418,5 @@ For beginner-level Pandas, focus first on:
 * `query()`
 * `set_index()`
 * `reset_index()`
+
+
