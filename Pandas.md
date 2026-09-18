@@ -220,3 +220,203 @@ It stores data in **rows and columns**.
 ### Simple Definition
 
 > **`pd.read_csv()` reads a CSV file and returns a DataFrame.**
+
+
+# Pandas — CSV Modification Functions
+
+## 1. `read_csv()`
+
+Reads a CSV file into a DataFrame.
+
+```python
+data = pd.read_csv("students.csv")
+```
+
+## 2. `skiprows`
+
+Skips one or more rows while reading a CSV file.
+
+```python
+data = pd.read_csv("students.csv", skiprows=2)
+```
+
+Here, the **first 2 rows are skipped**.
+
+### Example
+
+If the CSV contains:
+
+```text
+Student Data
+Name,Age,Marks
+Rahul,20,85
+Priya,21,92
+```
+
+```python
+data = pd.read_csv("students.csv", skiprows=1)
+```
+
+The first row (`Student Data`) is skipped, and Pandas reads:
+
+```text
+Name,Age,Marks
+Rahul,20,85
+Priya,21,92
+```
+
+## 3. `to_csv()`
+
+Saves a DataFrame as a CSV file.
+
+```python
+data.to_csv("new_students.csv", index=False)
+```
+
+## 4. `drop()`
+
+Removes rows or columns.
+
+```python
+data = data.drop("Age", axis=1)
+```
+
+## 5. `rename()`
+
+Changes column names.
+
+```python
+data = data.rename(columns={"Name": "Student_Name"})
+```
+
+## 6. `replace()`
+
+Replaces values.
+
+```python
+data = data.replace("Kolkata", "Siliguri")
+```
+
+## 7. `fillna()`
+
+Fills missing values.
+
+```python
+data["Age"] = data["Age"].fillna(0)
+```
+
+## 8. `dropna()`
+
+Removes rows containing missing values.
+
+```python
+data = data.dropna()
+```
+
+## 9. `sort_values()`
+
+Sorts the data.
+
+```python
+data = data.sort_values("Marks")
+```
+
+### Descending Order
+
+```python
+data = data.sort_values("Marks", ascending=False)
+```
+
+## 10. `astype()`
+
+Changes the data type.
+
+```python
+data["Age"] = data["Age"].astype(int)
+```
+
+## 11. `apply()`
+
+Applies a function to values.
+
+```python
+data["Marks"] = data["Marks"].apply(lambda x: x + 5)
+```
+
+## 12. `drop_duplicates()`
+
+Removes duplicate rows.
+
+```python
+data = data.drop_duplicates()
+```
+
+## 13. `insert()`
+
+Adds a new column at a specific position.
+
+```python
+data.insert(1, "Gender", ["M", "F", "M", "F", "M"])
+```
+
+## 14. Add a New Column
+
+```python
+data["Pass"] = data["Marks"] >= 40
+```
+
+## 15. Modify a Column
+
+```python
+data["Marks"] = data["Marks"] + 5
+```
+
+## 16. Modify a Specific Value
+
+```python
+data.loc[0, "Marks"] = 90
+```
+
+## 17. `query()`
+
+Filters rows using a condition.
+
+```python
+data = data.query("Marks > 80")
+```
+
+## 18. `set_index()`
+
+Sets a column as the index.
+
+```python
+data = data.set_index("Name")
+```
+
+## 19. `reset_index()`
+
+Resets the index.
+
+```python
+data = data.reset_index()
+```
+
+# Most Important Functions
+
+For beginner-level Pandas, focus first on:
+
+* `read_csv()`
+* `skiprows`
+* `to_csv()`
+* `drop()`
+* `rename()`
+* `replace()`
+* `fillna()`
+* `dropna()`
+* `sort_values()`
+* `astype()`
+* `drop_duplicates()`
+* `insert()`
+* `query()`
+* `set_index()`
+* `reset_index()`
