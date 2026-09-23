@@ -677,3 +677,259 @@ df.loc[condition, columns]
 ```
 
 → **Filter rows + select columns**
+
+# Pandas `iloc`
+
+## What is `iloc`?
+
+`iloc` is used to select **rows and columns by their integer position**.
+
+`iloc` stands for **Integer Location**.
+
+It always works with the **position number**, not the index label.
+
+---
+
+# Basic Syntax
+
+```python
+df.iloc[row_position, column_position]
+```
+
+---
+
+# 1. Select One Row
+
+```python
+df.iloc[2]
+```
+
+This selects the **3rd row**.
+
+Why?
+
+Because position starts from `0`:
+
+```text
+0 → 1st row
+1 → 2nd row
+2 → 3rd row
+3 → 4th row
+```
+
+---
+
+# 2. Select Multiple Rows
+
+```python
+df.iloc[1:4]
+```
+
+This selects:
+
+```text
+2nd row
+3rd row
+4th row
+```
+
+The starting position is included, but the ending position is not.
+
+---
+
+# 3. Select One Column
+
+```python
+df.iloc[:, 2]
+```
+
+This selects the **3rd column**.
+
+### Meaning
+
+```text
+: → all rows
+2 → 3rd column
+```
+
+---
+
+# 4. Select Multiple Columns
+
+```python
+df.iloc[:, 1:4]
+```
+
+This selects the:
+
+```text
+2nd column
+3rd column
+4th column
+```
+
+---
+
+# 5. Select One Row and One Column
+
+```python
+df.iloc[2, 3]
+```
+
+This selects the value at:
+
+```text
+3rd row
+4th column
+```
+
+---
+
+# 6. Select Multiple Rows and Columns
+
+```python
+df.iloc[1:4, 0:3]
+```
+
+This selects:
+
+```text
+Rows    → 2nd to 4th
+Columns → 1st to 3rd
+```
+
+---
+
+# 7. Select Specific Rows
+
+We can also give a list of positions.
+
+```python
+df.iloc[[0, 2, 4]]
+```
+
+This selects:
+
+```text
+1st row
+3rd row
+5th row
+```
+
+---
+
+# 8. Select Specific Columns
+
+```python
+df.iloc[:, [0, 2, 4]]
+```
+
+This selects:
+
+```text
+1st column
+3rd column
+5th column
+```
+
+---
+
+# 9. Select Specific Rows and Columns
+
+```python
+df.iloc[[0, 2, 4], [1, 3]]
+```
+
+This selects:
+
+```text
+Rows    → 1st, 3rd, 5th
+Columns → 2nd, 4th
+```
+
+---
+
+# Example with DataFrame
+
+Suppose:
+
+```python
+import pandas as pd
+
+data = {
+    "Name": ["Rahul", "Priya", "Amit", "Sneha"],
+    "Age": [25, 23, 28, 26],
+    "City": ["Kolkata", "Siliguri", "Delhi", "Mumbai"]
+}
+
+df = pd.DataFrame(data)
+
+print(df)
+```
+
+Output:
+
+```text
+    Name    Age       City
+0   Rahul    25     Kolkata
+1   Priya    23     Siliguri
+2   Amit     28     Delhi
+3   Sneha    26     Mumbai
+```
+
+### Select 3rd row
+
+```python
+df.iloc[2]
+```
+
+Output:
+
+```text
+Name       Amit
+Age           28
+City       Delhi
+```
+
+### Select 2nd and 3rd rows
+
+```python
+df.iloc[1:3]
+```
+
+Output:
+
+```text
+    Name    Age       City
+1   Priya    23     Siliguri
+2   Amit     28     Delhi
+```
+
+### Select 1st and 3rd columns
+
+```python
+df.iloc[:, [0, 2]]
+```
+
+Output:
+
+```text
+    Name       City
+0   Rahul     Kolkata
+1   Priya     Siliguri
+2   Amit      Delhi
+3   Sneha     Mumbai
+```
+
+---
+
+# `iloc` vs `loc`
+
+| Feature               | `iloc`   | `loc`       |
+| --------------------- | -------- | ----------- |
+| Based on              | Position | Label/Index |
+| Uses integer position | ✅        | ❌           |
+| Uses condition        | ❌        | ✅           |
+| Select rows           | ✅        | ✅           |
+| Select columns        | ✅        | ✅           |
+
