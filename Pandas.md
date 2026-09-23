@@ -541,3 +541,60 @@ The whole dataset is not loaded into memory at once.
 ## Interview Definition
 
 > `chunksize` allows Pandas to read a large dataset in smaller chunks instead of loading the entire dataset into memory at once.
+
+# Selecting Columns in Pandas
+
+## Selecting One Column
+
+Use a single pair of square brackets `[]`.
+
+```python
+df["Name"]
+```
+
+This returns a **Series**.
+
+### Example
+
+```python
+df["Age"]
+```
+
+---
+
+## Selecting Multiple Columns
+
+Use double square brackets `[[]]`.
+
+```python
+df[["Name", "Age", "Salary"]]
+```
+
+This returns a **DataFrame**.
+
+### Example
+
+```python
+df[["Name", "City"]]
+```
+
+---
+
+## Difference
+
+```python
+df["Name"]
+```
+
+→ **One column → Series**
+
+```python
+df[["Name", "Age"]]
+```
+
+→ **Multiple columns → DataFrame**
+
+### Remember
+
+> `[]` → Single column
+> `[[]]` → Multiple columns
