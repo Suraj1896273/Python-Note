@@ -598,3 +598,82 @@ df[["Name", "Age"]]
 
 > `[]` → Single column
 > `[[]]` → Multiple columns
+
+# Pandas: Select Rows
+
+## 1. Filtering Rows
+
+We can select rows using a condition directly.
+
+### Syntax
+
+```python
+df[condition]
+```
+
+### Example
+
+```python
+new_df = df[df["payment_mod"] == "UPI"]
+
+print(new_df)
+```
+
+This selects all rows where `payment_mod` is `UPI`.
+
+### Select rows and specific columns
+
+```python
+new_df = df[df["payment_mod"] == "UPI"][["area", "store_id"]]
+```
+
+---
+
+## 2. `loc` Method
+
+`loc` is used to select rows and columns using **labels or conditions**.
+
+### Syntax
+
+```python
+df.loc[row_condition, columns]
+```
+
+### Example
+
+```python
+new_df = df.loc[
+    df["payment_mod"] == "UPI",
+    ["area", "store_id"]
+]
+
+print(new_df)
+```
+
+This selects:
+
+* Only rows where `payment_mod` is `UPI`
+* Only `area` and `store_id` columns
+
+---
+
+## Difference
+
+| Method                       | Use                            |
+| ---------------------------- | ------------------------------ |
+| `df[condition]`              | Simple row filtering           |
+| `df.loc[condition, columns]` | Select rows + specific columns |
+
+### Easy Remember
+
+```python
+df[condition]
+```
+
+→ **Filter rows**
+
+```python
+df.loc[condition, columns]
+```
+
+→ **Filter rows + select columns**
