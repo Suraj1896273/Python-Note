@@ -456,3 +456,88 @@ Sets a column as the DataFrame index.
 ## `dtype`
 
 Specifies the data type of columns.
+
+# Reading Large Dataset in Pandas
+
+When a dataset is very large, loading the entire file into memory can use a lot of RAM.
+
+## 1. `chunksize`
+
+Reads the dataset in small chunks instead of loading everything at once.
+
+```python
+import pandas as pd
+
+chunks = pd.read_csv("large_data.csv", chunksize=10000)
+
+for chunk in chunks:
+    print(chunk)
+```
+
+`chunksize=10000` means Pandas reads **10,000 rows at a time**.
+
+```text
+Large Dataset
+     ↓
+10,000 rows
+     ↓
+10,000 rows
+     ↓
+10,000 rows
+     ↓
+...
+```
+
+## 2. `usecols`
+
+Read only the columns you need.
+
+```python
+df = pd.read_csv(
+    "large_data.csv",
+    usecols=["name", "age", "salary"]
+)
+```
+
+This helps reduce memory usage.
+
+## 3. `dtype`
+
+Specify the data type of columns.
+
+```python
+df = pd.read_csv(
+    "large_data.csv",
+    dtype={
+        "age": "int32",
+        "salary": "float32"
+    }
+)
+```
+
+Smaller data types can reduce memory usage.
+
+## 4. Process Data in Chunks
+
+Example: Calculate total salary.
+
+```python
+total = 0
+
+for chunk in pd.read_csv("large_data.csv", chunksize=10000):
+    total += chunk["salary"].sum()
+
+print(total)
+```
+
+The whole dataset is not loaded into memory at once.
+
+## Important Parameters
+
+* `chunksize` → Read data in smaller parts
+* `usecols` → Read only required columns
+* `dtype` → Specify column data types
+
+## Interview Definition
+
+> `chunksize` allows Pandas to read a large dataset in smaller chunks instead of loading the entire dataset into memory at once.
