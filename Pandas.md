@@ -1053,3 +1053,138 @@ df[(condition1) & (condition2)]
 ```
 
 **Boolean indexing = condition-এর মাধ্যমে matching rows filter করা।**
+
+# Pandas `assign()`
+
+## What is `assign()`?
+
+`assign()` is used to **add new columns** to a Pandas DataFrame.
+
+It returns a **new DataFrame**.
+
+## Syntax
+
+```python
+df = df.assign(column_name=values)
+```
+
+## Example
+
+```python
+import pandas as pd
+
+df = pd.DataFrame({
+    "name": ["Rahul", "Priya", "Amit"],
+    "salary": [20000, 25000, 30000]
+})
+
+df = df.assign(
+    bonus=df["salary"] * 0.10
+)
+
+print(df)
+```
+
+### Output
+
+```text
+    name  salary   bonus
+0  Rahul   20000  2000.0
+1  Priya   25000  2500.0
+2   Amit   30000  3000.0
+```
+
+## Important Point
+
+The new column is normally added at the **end**.
+
+```python
+df = df.assign(age=[20, 21, 22])
+```
+
+`assign()` can also add multiple columns:
+
+```python
+df = df.assign(
+    bonus=df["salary"] * 0.10,
+    total=df["salary"] + df["salary"] * 0.10
+)
+```
+
+# Pandas `insert()`
+
+## What is `insert()`?
+
+`insert()` is used to **add a new column at a specific position** in a Pandas DataFrame.
+
+It directly modifies the original DataFrame.
+
+## Syntax
+
+```python
+df.insert(position, "column_name", values)
+```
+
+## Example
+
+```python
+import pandas as pd
+
+df = pd.DataFrame({
+    "name": ["Rahul", "Priya", "Amit"],
+    "salary": [20000, 25000, 30000]
+})
+
+df.insert(
+    1,
+    "age",
+    [20, 21, 22]
+)
+
+print(df)
+```
+
+### Output
+
+```text
+    name  age  salary
+0  Rahul   20   20000
+1  Priya   21   25000
+2   Amit   22   30000
+```
+
+Here:
+
+```python
+1
+```
+
+means the new column is inserted at **position 1**.
+
+## Another Example
+
+```python
+df.insert(
+    2,
+    "bonus",
+    df["salary"] * 0.10
+)
+```
+
+The `bonus` column will be inserted at **position 2**.
+
+## Important Point
+
+`insert()` changes the original DataFrame directly.
+
+```python
+df.insert(1, "age", [20, 21, 22])
+```
+
+You don't need:
+
+```python
+df = df.insert(...)
+```
+
+because `insert()` modifies `df` itself.
