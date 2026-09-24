@@ -933,3 +933,123 @@ Output:
 | Select rows           | ✅        | ✅           |
 | Select columns        | ✅        | ✅           |
 
+
+# Pandas `between()`
+
+`between()` checks whether values are within a given range.
+
+## Syntax
+
+```python
+df["column"].between(start, end)
+```
+
+## Example
+
+```python
+df["age"].between(20, 30)
+```
+
+* `20` and `30` are included by default.
+* Returns `True` or `False`.
+
+```text
+20 ≤ age ≤ 30
+```
+
+## Filter Rows
+
+```python
+df[df["age"].between(20, 30)]
+```
+
+# Pandas `query()`
+
+`query()` is used to **filter rows using a condition**.
+
+## Syntax
+
+```python
+df.query("condition")
+```
+
+## Example
+
+```python
+df.query("age > 25")
+```
+
+Returns rows where `age` is greater than 25.
+
+## Multiple Conditions
+
+```python
+df.query("age > 25 and city == 'Kolkata'")
+```
+
+* `and` → both conditions
+* `or` → any one condition
+
+### Remember
+
+**`query()` = condition দিয়ে rows filter করা**
+
+# Pandas Boolean Indexing
+
+Boolean indexing is used to **filter rows** of a DataFrame using conditions.
+
+## Basic Syntax
+
+```python
+df[df["column"] > value]
+```
+
+### Example
+
+```python
+df[df["age"] > 25]
+```
+
+Only rows where the condition is `True` are selected.
+
+## Boolean Operators
+
+| Operator | Meaning |    |
+| -------- | ------- | -- |
+| `&`      | AND     |    |
+| `        | `       | OR |
+| `~`      | NOT     |    |
+
+### AND `&`
+
+Both conditions must be `True`.
+
+```python
+df[(df["age"] > 25) & (df["city"] == "Kolkata")]
+```
+
+### OR `|`
+
+At least one condition must be `True`.
+
+```python
+df[(df["age"] > 25) | (df["city"] == "Kolkata")]
+```
+
+### NOT `~`
+
+Reverses the condition.
+
+```python
+df[~(df["city"] == "Kolkata")]
+```
+
+## Important
+
+Use **parentheses** around each condition:
+
+```python
+df[(condition1) & (condition2)]
+```
+
+**Boolean indexing = condition-এর মাধ্যমে matching rows filter করা।**
