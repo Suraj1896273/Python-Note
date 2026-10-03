@@ -1188,3 +1188,41 @@ df = df.insert(...)
 ```
 
 because `insert()` modifies `df` itself.
+
+# `isin()` in Pandas
+
+`isin()` is used to check whether a column contains **any value from a given list**.
+
+## Syntax
+
+```python
+df[df["column"].isin([value1, value2])]
+```
+
+## Example
+
+```python
+result = df[df["payment_mode"].isin(["UPI", "EMI"])]
+
+print(result)
+```
+
+This returns rows where `payment_mode` is **UPI OR EMI**.
+
+## Check Unique Values
+
+```python
+print(df["payment_mode"].unique())
+```
+
+### Remember
+
+`isin()` → **matches multiple values**
+
+```python
+isin(["UPI", "EMI"])
+```
+
+Means:
+
+**UPI OR EMI**
