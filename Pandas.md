@@ -1,10 +1,18 @@
-# Pandas — Basic Understanding
+# Pandas Complete Notes
 
-## What is Pandas?
+# Level 1: Pandas Basics
 
-**Pandas** is a Python library used for **data manipulation, data analysis, and data cleaning**.
+## 1. What is Pandas?
 
-It helps us work with data in the form of **tables**, similar to Excel spreadsheets.
+**Pandas** is a Python library used for:
+
+* Data manipulation
+* Data analysis
+* Data cleaning
+* Working with structured data
+* Reading and writing files
+
+Pandas helps us work with data in the form of **tables**, similar to Excel spreadsheets.
 
 ### Simple Definition
 
@@ -12,46 +20,62 @@ It helps us work with data in the form of **tables**, similar to Excel spreadshe
 
 ---
 
-# Why Do We Use Pandas?
-
-Pandas is mainly used to:
-
-- Read data from files
-- Create and store data
-- Clean missing or incorrect data
-- Select and filter data
-- Sort data
-- Analyze data
-- Group data
-- Perform calculations
-- Work with large datasets
-
----
-
-# Installing Pandas
+# 2. Installing Pandas
 
 If Pandas is not installed, use:
 
-
+```bash
 pip install pandas
-
-# Pandas Series
-
-## What is Pandas Series?
-
-**Pandas Series** is a one-dimensional data structure in Pandas.
-
-It stores data in the form of values along with an index.
-
-### Simple Definition
-
-> A Pandas Series is a one-dimensional labeled data structure used to store a collection of values.
+```
 
 ---
 
-## Creating a Series
+# 3. Importing Pandas
 
-We can create a Series using `pd.Series()`.
+We normally import Pandas using the alias `pd`.
+
+```python
+import pandas as pd
+```
+
+Now we can use:
+
+```python
+pd.Series()
+pd.DataFrame()
+pd.read_csv()
+```
+
+---
+
+# 4. Pandas Series
+
+## What is a Series?
+
+A **Series** is a **one-dimensional** data structure.
+
+It stores:
+
+* Values
+* Index
+
+### Simple Definition
+
+> **Series → One-dimensional labeled data structure.**
+
+The uploaded notes also summarize it as **one column of data with an index**.
+
+---
+
+# 5. Creating a Series
+
+Use:
+
+```python
+pd.Series()
+```
+
+Example:
 
 ```python
 import pandas as pd
@@ -61,49 +85,90 @@ s = pd.Series(["Ind", "Aus", "NZ"])
 print(s)
 ```
 
-# Pandas DataFrame
+Output:
 
-## What is a Pandas DataFrame?
+```text
+0    Ind
+1    Aus
+2     NZ
+dtype: object
+```
 
-A **Pandas DataFrame** is a two-dimensional data structure in Pandas.
+Here:
 
-It stores data in the form of **rows and columns**, similar to an Excel spreadsheet or a database table.
+```text
+0, 1, 2 → Index
+Ind, Aus, NZ → Values
+```
+
+---
+
+# 6. Series with Custom Index
+
+```python
+s = pd.Series(
+    ["Ind", "Aus", "NZ"],
+    index=["A", "B", "C"]
+)
+
+print(s)
+```
+
+Output:
+
+```text
+A    Ind
+B    Aus
+C     NZ
+```
+
+---
+
+# 7. Pandas DataFrame
+
+## What is a DataFrame?
+
+A **DataFrame** is a **two-dimensional** data structure.
+
+It contains:
+
+* Rows
+* Columns
+* Index
+* Values
+
+It is similar to an Excel spreadsheet or database table.
 
 ### Simple Definition
 
-> A Pandas DataFrame is a two-dimensional labeled data structure used to store, manipulate, and analyze structured data.
+> **DataFrame → Two-dimensional labeled data structure containing rows and columns.**
+
+### Easy Remember
+
+```text
+Series    → One column
+DataFrame → Multiple rows + columns
+```
 
 ---
 
-# Why Do We Use DataFrame?
+# 8. Creating a DataFrame
 
-DataFrame is mainly used to:
+Use:
 
-- Store data in rows and columns
-- Read data from CSV and Excel files
-- Clean data
-- Filter data
-- Sort data
-- Analyze data
-- Handle missing values
-- Group data
-- Perform calculations
-- Prepare data for Data Science and Machine Learning
+```python
+pd.DataFrame()
+```
 
----
-
-# Creating a DataFrame
-
-We can create a DataFrame using `pd.DataFrame()`.
+Example:
 
 ```python
 import pandas as pd
 
 data = {
-    "name": ["Rahul", "Priya", "Amit", "Sneha"],
-    "employee_id": [101, 102, 103, 104],
-    "age": [25, 23, 28, 26],
-    "city": ["Kolkata", "Siliguri", "Delhi", "Mumbai"]
+    "Name": ["Rahul", "Priya", "Amit"],
+    "Age": [25, 23, 28],
+    "City": ["Kolkata", "Siliguri", "Delhi"]
 }
 
 df = pd.DataFrame(data)
@@ -111,386 +176,685 @@ df = pd.DataFrame(data)
 print(df)
 ```
 
-# Output :-
-# Pandas DataFrame
+Output:
 
-## What is a Pandas DataFrame?
-
-A **Pandas DataFrame** is a two-dimensional data structure in Pandas.
-
-It stores data in the form of **rows and columns**, similar to an Excel spreadsheet or a database table.
-
-### Simple Definition
-
-> A Pandas DataFrame is a two-dimensional labeled data structure used to store, manipulate, and analyze structured data.
+```text
+    Name  Age      City
+0  Rahul   25   Kolkata
+1  Priya   23  Siliguri
+2   Amit   28     Delhi
+```
 
 ---
 
-# Why Do We Use DataFrame?
+# 9. Creating DataFrame from Dictionary
 
-DataFrame is mainly used to:
-
-- Store data in rows and columns
-- Read data from CSV and Excel files
-- Clean data
-- Filter data
-- Sort data
-- Analyze data
-- Handle missing values
-- Group data
-- Perform calculations
-- Prepare data for Data Science and Machine Learning
-
----
-
-# Creating a DataFrame
-
-We can create a DataFrame using `pd.DataFrame()`.
+A dictionary is one of the most common ways to create a DataFrame.
 
 ```python
-mport pandas as pd
-
 data = {
-    "name": ["Rahul", "Priya", "Amit", "Sneha"],
-    "employee_id": [101, 102, 103, 104],
-    "age": [25, 23, 28, 26],
-    "city": ["Kolkata", "Siliguri", "Delhi", "Mumbai"]
+    "Name": ["Rahul", "Priya", "Amit"],
+    "Age": [25, 23, 28],
+    "City": ["Kolkata", "Siliguri", "Delhi"]
 }
 
-print(data)
-
-Emply_Details = pd.DataFrame(data)
-print(Emply_Details)
-
+df = pd.DataFrame(data)
 ```
 
-## Basic Difference Between Series and DataFrame
+Here:
 
-- **Series** → Contains **one column** of data with an index.
-- **DataFrame** → Contains **multiple columns and rows** of data with indexes.
+```text
+Dictionary key   → Column name
+Dictionary value → Column data
+```
 
-### Easy Way to Remember
+The uploaded notes use the same dictionary → DataFrame approach.
 
--> **Series → One Column**
+---
 
--> **DataFrame → Multiple Columns + Rows**
+# 10. Creating DataFrame from List
 
-
-# Pandas — `read_csv()`
-
-## What is `read_csv()`?
-
-`pd.read_csv()` is used to **read a CSV file** and convert it into a Pandas **DataFrame**.
-
-### Syntax
+A list of lists can also be converted into a DataFrame.
 
 ```python
-pd.read_csv("file_name.csv")
+data = [
+    ["Rahul", 25, "Kolkata"],
+    ["Priya", 23, "Siliguri"],
+    ["Amit", 28, "Delhi"]
+]
+
+df = pd.DataFrame(
+    data,
+    columns=["Name", "Age", "City"]
+)
+
+print(df)
 ```
 
-### Example
+Output:
+
+```text
+    Name  Age      City
+0  Rahul   25   Kolkata
+1  Priya   23  Siliguri
+2   Amit   28     Delhi
+```
+
+---
+
+# 11. Creating DataFrame from NumPy Array
+
+We can create a DataFrame from a NumPy array.
+
+```python
+import numpy as np
+import pandas as pd
+
+data = np.array([
+    [101, "Rahul"],
+    [102, "Priya"],
+    [103, "Amit"]
+])
+
+df = pd.DataFrame(
+    data,
+    columns=["ID", "Name"]
+)
+
+print(df)
+```
+
+---
+
+# 12. Index
+
+An **index** identifies the rows of a DataFrame.
+
+Default index:
+
+```text
+0
+1
+2
+3
+```
+
+Example:
+
+```python
+df.index
+```
+
+We can also create a custom index:
+
+```python
+df = pd.DataFrame(
+    data,
+    index=["A", "B", "C"]
+)
+```
+
+---
+
+# 13. Columns
+
+`columns` gives the column names.
+
+```python
+df.columns
+```
+
+Example output:
+
+```text
+Index(['Name', 'Age', 'City'], dtype='object')
+```
+
+---
+
+# 14. Shape
+
+`shape` tells us the number of:
+
+```text
+rows × columns
+```
+
+Example:
+
+```python
+df.shape
+```
+
+Output:
+
+```text
+(3, 3)
+```
+
+Meaning:
+
+```text
+3 rows
+3 columns
+```
+
+---
+
+# 15. Size
+
+`size` tells us the **total number of elements**.
+
+```python
+df.size
+```
+
+If:
+
+```text
+3 rows × 3 columns
+```
+
+then:
+
+```text
+size = 9
+```
+
+---
+
+# 16. ndim
+
+`ndim` tells us the number of dimensions.
+
+For a DataFrame:
+
+```python
+df.ndim
+```
+
+Output:
+
+```text
+2
+```
+
+For a Series:
+
+```python
+s.ndim
+```
+
+Output:
+
+```text
+1
+```
+
+Remember:
+
+```text
+Series    → ndim = 1
+DataFrame → ndim = 2
+```
+
+---
+
+# 17. Data Types
+
+`dtypes` tells us the data type of each column.
+
+```python
+df.dtypes
+```
+
+Example:
+
+```text
+Name    object
+Age      int64
+```
+
+Common types:
+
+```text
+int64
+float64
+object
+bool
+```
+
+---
+
+# 18. head()
+
+`head()` displays the first rows.
+
+```python
+df.head()
+```
+
+By default it shows the first **5 rows**.
+
+We can specify the number:
+
+```python
+df.head(3)
+```
+
+→ First 3 rows.
+
+---
+
+# 19. tail()
+
+`tail()` displays the last rows.
+
+```python
+df.tail()
+```
+
+By default it shows the last **5 rows**.
+
+```python
+df.tail(3)
+```
+
+→ Last 3 rows.
+
+---
+
+# 20. info()
+
+`info()` gives information about the DataFrame.
+
+```python
+df.info()
+```
+
+It provides information such as:
+
+* Number of rows
+* Column names
+* Non-null values
+* Data types
+* Memory usage
+
+---
+
+# 21. describe()
+
+`describe()` gives statistical information about numerical columns.
+
+```python
+df.describe()
+```
+
+It commonly shows:
+
+* count
+* mean
+* standard deviation
+* minimum
+* 25%
+* 50%
+* 75%
+* maximum
+
+---
+
+# Level 1 Quick Revision
+
+| Function     | Meaning               |
+| ------------ | --------------------- |
+| `head()`     | First rows            |
+| `tail()`     | Last rows             |
+| `shape`      | Rows × columns        |
+| `size`       | Total elements        |
+| `ndim`       | Number of dimensions  |
+| `columns`    | Column names          |
+| `index`      | Row indexes           |
+| `dtypes`     | Data types            |
+| `info()`     | DataFrame information |
+| `describe()` | Statistical summary   |
+
+---
+
+# Level 2: Reading and Saving Data
+
+# 22. Reading CSV
+
+CSV means **Comma-Separated Values**.
+
+Use:
+
+```python
+pd.read_csv()
+```
+
+Example:
 
 ```python
 import pandas as pd
 
-data = pd.read_csv("students.csv")
+df = pd.read_csv("students.csv")
 
-print(data)
+print(df)
 ```
 
-### If File is in Another Folder
+`read_csv()` reads a CSV file and returns a DataFrame.
+
+---
+
+# 23. Reading CSV from Another Folder
 
 ```python
-data = pd.read_csv(r"C:\Users\YourName\Downloads\students.csv")
+df = pd.read_csv(
+    r"C:\Users\YourName\Downloads\students.csv"
+)
 ```
 
-## What is CSV?
+Using `r` before the path helps handle Windows backslashes.
 
-**CSV** stands for **Comma-Separated Values**.
+---
 
-It stores data in **rows and columns**.
+# 24. Saving DataFrame to CSV
 
-### CSV vs Excel
-
-| File    | Function          |
-| ------- | ----------------- |
-| `.csv`  | `pd.read_csv()`   |
-| `.xlsx` | `pd.read_excel()` |
-
-### Simple Definition
-
-> **`pd.read_csv()` reads a CSV file and returns a DataFrame.**
-
-
-# Pandas — CSV Modification Functions
-
-## 1. `read_csv()`
-
-Reads a CSV file into a DataFrame.
+Use:
 
 ```python
-data = pd.read_csv("students.csv")
+df.to_csv("students_new.csv")
 ```
 
-## 2. `skiprows`
-
-Skips one or more rows while reading a CSV file.
+Usually we don't want Pandas to save the DataFrame index:
 
 ```python
-data = pd.read_csv("students.csv", skiprows=2)
+df.to_csv(
+    "students_new.csv",
+    index=False
+)
 ```
 
-Here, the **first 2 rows are skipped**.
-
-### Example
-
-If the CSV contains:
+### Remember
 
 ```text
-Student Data
-Name,Age,Marks
-Rahul,20,85
-Priya,21,92
+read_csv() → CSV → DataFrame
+
+to_csv()   → DataFrame → CSV
 ```
+
+---
+
+# 25. Reading Excel
+
+Use:
 
 ```python
-data = pd.read_csv("students.csv", skiprows=1)
+pd.read_excel()
 ```
 
-The first row (`Student Data`) is skipped, and Pandas reads:
-
-```text
-Name,Age,Marks
-Rahul,20,85
-Priya,21,92
-```
-
-## 3. `to_csv()`
-
-Saves a DataFrame as a CSV file.
+Example:
 
 ```python
-data.to_csv("new_students.csv", index=False)
+df = pd.read_excel("students.xlsx")
 ```
 
-## 4. `drop()`
+---
 
-Removes rows or columns.
+# 26. Saving to Excel
+
+Use:
 
 ```python
-data = data.drop("Age", axis=1)
+df.to_excel("students_new.xlsx")
 ```
 
-## 5. `rename()`
-
-Changes column names.
+Without saving the index:
 
 ```python
-data = data.rename(columns={"Name": "Student_Name"})
+df.to_excel(
+    "students_new.xlsx",
+    index=False
+)
 ```
 
-## 6. `replace()`
+---
 
-Replaces values.
+# 27. Reading JSON
+
+JSON means **JavaScript Object Notation**.
+
+Use:
 
 ```python
-data = data.replace("Kolkata", "Siliguri")
+df = pd.read_json("students.json")
 ```
 
-## 7. `fillna()`
+---
 
-Fills missing values.
+# 28. Saving to JSON
+
+Use:
 
 ```python
-data["Age"] = data["Age"].fillna(0)
+df.to_json("students.json")
 ```
 
-## 8. `dropna()`
+---
 
-Removes rows containing missing values.
-
-```python
-data = data.dropna()
-```
-
-## 9. `sort_values()`
-
-Sorts the data.
-
-```python
-data = data.sort_values("Marks")
-```
-
-### Descending Order
-
-```python
-data = data.sort_values("Marks", ascending=False)
-```
-
-## 10. `astype()`
-
-Changes the data type.
-
-```python
-data["Age"] = data["Age"].astype(int)
-```
-
-## 11. `apply()`
-
-Applies a function to values.
-
-```python
-data["Marks"] = data["Marks"].apply(lambda x: x + 5)
-```
-
-## 12. `drop_duplicates()`
-
-Removes duplicate rows.
-
-```python
-data = data.drop_duplicates()
-```
-
-## 13. `insert()`
-
-Adds a new column at a specific position.
-
-```python
-data.insert(1, "Gender", ["M", "F", "M", "F", "M"])
-```
-
-## 14. Add a New Column
-
-```python
-data["Pass"] = data["Marks"] >= 40
-```
-
-## 15. Modify a Column
-
-```python
-data["Marks"] = data["Marks"] + 5
-```
-
-## 16. Modify a Specific Value
-
-```python
-data.loc[0, "Marks"] = 90
-```
-
-## 17. `query()`
-
-Filters rows using a condition.
-
-```python
-data = data.query("Marks > 80")
-```
-
-## 18. `set_index()`
-
-Sets a column as the index.
-
-```python
-data = data.set_index("Name")
-```
-
-## 19. `reset_index()`
-
-Resets the index.
-
-```python
-data = data.reset_index()
-```
-
-# Most Important Functions
-
-* `read_csv()`
-* `skiprows`
-* `to_csv()`
-* `drop()`
-* `rename()`
-* `replace()`
-* `fillna()`
-* `dropna()`
-* `sort_values()`
-* `astype()`
-* `drop_duplicates()`
-* `insert()`
-* `query()`
-* `set_index()`
-* `reset_index()`
-
-# Pandas Excel Functions
-
-## `pd.read_excel()`
-
-Reads an Excel file and converts it into a Pandas DataFrame.
-
-## `data.to_excel()`
-
-Saves a Pandas DataFrame as an Excel file.
-
-## `sheet_name`
-
-Selects a specific Excel sheet.
+# 29. Important CSV Parameters
 
 ## `skiprows`
 
-Skips specified rows while reading the Excel file.
+Skips rows while reading.
+
+```python
+df = pd.read_csv(
+    "students.csv",
+    skiprows=2
+)
+```
+
+This skips the first 2 rows.
+
+---
+
+## `sep`
+
+Used when the separator is not a comma.
+
+Example:
+
+```text
+Name|Age|City
+Rahul|20|Kolkata
+Priya|21|Delhi
+```
+
+Read it using:
+
+```python
+df = pd.read_csv(
+    "students.csv",
+    sep="|"
+)
+```
+
+For tab-separated data:
+
+```python
+df = pd.read_csv(
+    "students.csv",
+    sep="\t"
+)
+```
+
+### Remember
+
+```text
+,  → comma
+|  → pipe
+\t → tab
+;  → semicolon
+```
+
+---
+
+# 30. `usecols`
+
+Reads only selected columns.
+
+```python
+df = pd.read_csv(
+    "students.csv",
+    usecols=["Name", "Age"]
+)
+```
+
+---
+
+# 31. `nrows`
+
+Reads only a specific number of rows.
+
+```python
+df = pd.read_csv(
+    "students.csv",
+    nrows=100
+)
+```
+
+→ Reads only the first 100 rows.
+
+---
+
+# 32. `header`
+
+Specifies which row contains column names.
+
+```python
+df = pd.read_csv(
+    "students.csv",
+    header=0
+)
+```
+
+---
+
+# 33. `dtype`
+
+Specifies data types.
+
+```python
+df = pd.read_csv(
+    "students.csv",
+    dtype={"Age": "int32"}
+)
+```
+
+---
+
+# 34. Important Excel Parameters
+
+## `sheet_name`
+
+Select a particular sheet.
+
+```python
+df = pd.read_excel(
+    "students.xlsx",
+    sheet_name="Sheet1"
+)
+```
+
+## `skiprows`
+
+```python
+df = pd.read_excel(
+    "students.xlsx",
+    skiprows=2
+)
+```
 
 ## `usecols`
 
-Reads only the specified columns.
+```python
+df = pd.read_excel(
+    "students.xlsx",
+    usecols=["Name", "Age"]
+)
+```
 
 ## `nrows`
 
-Reads only the specified number of rows.
+```python
+df = pd.read_excel(
+    "students.xlsx",
+    nrows=10
+)
+```
 
 ## `header`
 
-Specifies which row is used as the column header.
+```python
+df = pd.read_excel(
+    "students.xlsx",
+    header=0
+)
+```
 
 ## `index_col`
 
-Sets a column as the DataFrame index.
-
-## `dtype`
-
-Specifies the data type of columns.
-
-# Reading Large Dataset in Pandas
-
-When a dataset is very large, loading the entire file into memory can use a lot of RAM.
-
-## 1. `chunksize`
-
-Reads the dataset in small chunks instead of loading everything at once.
+Makes a column the index.
 
 ```python
-import pandas as pd
+df = pd.read_excel(
+    "students.xlsx",
+    index_col="ID"
+)
+```
 
-chunks = pd.read_csv("large_data.csv", chunksize=10000)
+The uploaded notes identify these as important Excel-reading parameters.
+
+---
+
+# 35. Reading Large Datasets
+
+If a dataset is very large, loading the entire file into RAM may use a lot of memory.
+
+## `chunksize`
+
+Reads the dataset in smaller parts.
+
+```python
+chunks = pd.read_csv(
+    "large_data.csv",
+    chunksize=10000
+)
 
 for chunk in chunks:
     print(chunk)
 ```
 
-`chunksize=10000` means Pandas reads **10,000 rows at a time**.
+Meaning:
 
 ```text
-Large Dataset
+10000 rows
      ↓
-10,000 rows
+10000 rows
      ↓
-10,000 rows
-     ↓
-10,000 rows
+10000 rows
      ↓
 ...
 ```
 
-## 2. `usecols`
+`chunksize=10000` means Pandas reads **10,000 rows at a time**.
 
-Read only the columns you need.
+---
+
+# 36. Large Dataset with usecols
+
+Read only the columns required:
 
 ```python
 df = pd.read_csv(
@@ -499,11 +863,11 @@ df = pd.read_csv(
 )
 ```
 
-This helps reduce memory usage.
+This can reduce memory usage.
 
-## 3. `dtype`
+---
 
-Specify the data type of columns.
+# 37. Large Dataset with dtype
 
 ```python
 df = pd.read_csv(
@@ -517,36 +881,32 @@ df = pd.read_csv(
 
 Smaller data types can reduce memory usage.
 
-## 4. Process Data in Chunks
+---
 
-Example: Calculate total salary.
+# Level 2 Quick Revision
 
-```python
-total = 0
+| Task             | Function          |
+| ---------------- | ----------------- |
+| Read CSV         | `pd.read_csv()`   |
+| Save CSV         | `df.to_csv()`     |
+| Read Excel       | `pd.read_excel()` |
+| Save Excel       | `df.to_excel()`   |
+| Read JSON        | `pd.read_json()`  |
+| Save JSON        | `df.to_json()`    |
+| Large data       | `chunksize`       |
+| Selected columns | `usecols`         |
+| Selected rows    | `nrows`           |
+| Skip rows        | `skiprows`        |
+| Separator        | `sep`             |
+| Data type        | `dtype`           |
 
-for chunk in pd.read_csv("large_data.csv", chunksize=10000):
-    total += chunk["salary"].sum()
+---
 
-print(total)
-```
+# Level 3: Selecting and Filtering Data
 
-The whole dataset is not loaded into memory at once.
+# 38. Selecting One Column
 
-## Important Parameters
-
-* `chunksize` → Read data in smaller parts
-* `usecols` → Read only required columns
-* `dtype` → Specify column data types
-
-## Interview Definition
-
-> `chunksize` allows Pandas to read a large dataset in smaller chunks instead of loading the entire dataset into memory at once.
-
-# Selecting Columns in Pandas
-
-## Selecting One Column
-
-Use a single pair of square brackets `[]`.
+Use single square brackets:
 
 ```python
 df["Name"]
@@ -554,82 +914,66 @@ df["Name"]
 
 This returns a **Series**.
 
-### Example
-
-```python
-df["Age"]
+```text
+[] → one column → Series
 ```
 
 ---
 
-## Selecting Multiple Columns
+# 39. Selecting Multiple Columns
 
-Use double square brackets `[[]]`.
+Use double square brackets:
 
 ```python
-df[["Name", "Age", "Salary"]]
+df[["Name", "Age", "City"]]
 ```
 
 This returns a **DataFrame**.
 
-### Example
+```text
+[[]] → multiple columns → DataFrame
+```
+
+This distinction is emphasized in the uploaded notes.
+
+---
+
+# 40. Selecting Rows
+
+We can filter rows using a condition.
 
 ```python
-df[["Name", "City"]]
+df[df["Age"] > 25]
+```
+
+This selects rows where:
+
+```text
+Age > 25
 ```
 
 ---
 
-## Difference
+# 41. Selecting Rows and Specific Columns
 
 ```python
-df["Name"]
+df[
+    df["Age"] > 25
+][
+    ["Name", "City"]
+]
 ```
 
-→ **One column → Series**
+This means:
 
-```python
-df[["Name", "Age"]]
-```
-
-→ **Multiple columns → DataFrame**
-
-### Remember
-
-> `[]` → Single column
-> `[[]]` → Multiple columns
-
-# Pandas: Select Rows
-
-## 1. Filtering Rows
-
-We can select rows using a condition directly.
-
-### Syntax
-
-```python
-df[condition]
-```
-
-### Example
-
-```python
-new_df = df[df["payment_mod"] == "UPI"]
-
-print(new_df)
-```
-
-This selects all rows where `payment_mod` is `UPI`.
-
-### Select rows and specific columns
-
-```python
-new_df = df[df["payment_mod"] == "UPI"][["area", "store_id"]]
+```text
+First → filter rows
+Second → select columns
 ```
 
 ---
 
-## 2. `loc` Method
+# 42. `loc`
 
 `loc` is used to select rows and columns using **labels or conditions**.
 
@@ -639,58 +983,34 @@ new_df = df[df["payment_mod"] == "UPI"][["area", "store_id"]]
 df.loc[row_condition, columns]
 ```
 
-### Example
+Example:
 
 ```python
-new_df = df.loc[
-    df["payment_mod"] == "UPI",
-    ["area", "store_id"]
+df.loc[
+    df["Age"] > 25,
+    ["Name", "City"]
 ]
-
-print(new_df)
 ```
 
-This selects:
+Meaning:
 
-* Only rows where `payment_mod` is `UPI`
-* Only `area` and `store_id` columns
+```text
+Age > 25
++
+Name and City columns
+```
+
+The source notes distinguish `df[condition]` as simple row filtering and `df.loc[condition, columns]` as row filtering plus column selection.
 
 ---
 
-## Difference
+# 43. `iloc`
 
-| Method                       | Use                            |
-| ---------------------------- | ------------------------------ |
-| `df[condition]`              | Simple row filtering           |
-| `df.loc[condition, columns]` | Select rows + specific columns |
+`iloc` means **Integer Location**.
 
-### Easy Remember
+It selects rows and columns using **integer positions**.
 
-```python
-df[condition]
-```
-
-→ **Filter rows**
-
-```python
-df.loc[condition, columns]
-```
-
-→ **Filter rows + select columns**
-
-# Pandas `iloc`
-
-## What is `iloc`?
-
-`iloc` is used to select **rows and columns by their integer position**.
-
-`iloc` stands for **Integer Location**.
-
-It always works with the **position number**, not the index label.
-
----
-
-# Basic Syntax
+### Syntax
 
 ```python
 df.iloc[row_position, column_position]
@@ -698,54 +1018,45 @@ df.iloc[row_position, column_position]
 
 ---
 
-# 1. Select One Row
+## Select One Row
 
 ```python
 df.iloc[2]
 ```
 
-This selects the **3rd row**.
-
-Why?
-
-Because position starts from `0`:
+Selects the **3rd row** because indexing starts from `0`.
 
 ```text
 0 → 1st row
 1 → 2nd row
 2 → 3rd row
-3 → 4th row
 ```
 
 ---
 
-# 2. Select Multiple Rows
+## Select Multiple Rows
 
 ```python
 df.iloc[1:4]
 ```
 
-This selects:
+Selects:
 
 ```text
-2nd row
-3rd row
-4th row
+2nd
+3rd
+4th
 ```
-
-The starting position is included, but the ending position is not.
 
 ---
 
-# 3. Select One Column
+## Select One Column
 
 ```python
 df.iloc[:, 2]
 ```
 
-This selects the **3rd column**.
-
-### Meaning
+Meaning:
 
 ```text
 : → all rows
@@ -754,29 +1065,23 @@ This selects the **3rd column**.
 
 ---
 
-# 4. Select Multiple Columns
+## Select Multiple Columns
 
 ```python
 df.iloc[:, 1:4]
 ```
 
-This selects the:
-
-```text
-2nd column
-3rd column
-4th column
-```
+Selects columns 2, 3 and 4.
 
 ---
 
-# 5. Select One Row and One Column
+## Select One Row and One Column
 
 ```python
 df.iloc[2, 3]
 ```
 
-This selects the value at:
+Means:
 
 ```text
 3rd row
@@ -785,62 +1090,45 @@ This selects the value at:
 
 ---
 
-# 6. Select Multiple Rows and Columns
-
-```python
-df.iloc[1:4, 0:3]
-```
-
-This selects:
-
-```text
-Rows    → 2nd to 4th
-Columns → 1st to 3rd
-```
-
----
-
-# 7. Select Specific Rows
-
-We can also give a list of positions.
+## Select Specific Rows
 
 ```python
 df.iloc[[0, 2, 4]]
 ```
 
-This selects:
+Selects:
 
 ```text
-1st row
-3rd row
-5th row
+1st
+3rd
+5th
 ```
 
 ---
 
-# 8. Select Specific Columns
+## Select Specific Columns
 
 ```python
 df.iloc[:, [0, 2, 4]]
 ```
 
-This selects:
+Selects:
 
 ```text
-1st column
-3rd column
-5th column
+1st
+3rd
+5th
 ```
 
 ---
 
-# 9. Select Specific Rows and Columns
+## Select Specific Rows and Columns
 
 ```python
 df.iloc[[0, 2, 4], [1, 3]]
 ```
 
-This selects:
+Means:
 
 ```text
 Rows    → 1st, 3rd, 5th
@@ -849,260 +1137,355 @@ Columns → 2nd, 4th
 
 ---
 
-# Example with DataFrame
+# 44. `loc` vs `iloc`
 
-Suppose:
+| Feature          | `loc`                | `iloc`   |
+| ---------------- | -------------------- | -------- |
+| Based on         | Label/condition      | Position |
+| Integer position | Not its main purpose | Yes      |
+| Condition        | Yes                  | No       |
+| Select rows      | Yes                  | Yes      |
+| Select columns   | Yes                  | Yes      |
 
-```python
-import pandas as pd
-
-data = {
-    "Name": ["Rahul", "Priya", "Amit", "Sneha"],
-    "Age": [25, 23, 28, 26],
-    "City": ["Kolkata", "Siliguri", "Delhi", "Mumbai"]
-}
-
-df = pd.DataFrame(data)
-
-print(df)
-```
-
-Output:
+### Easy Remember
 
 ```text
-    Name    Age       City
-0   Rahul    25     Kolkata
-1   Priya    23     Siliguri
-2   Amit     28     Delhi
-3   Sneha    26     Mumbai
+loc  → Label / condition
+iloc → Integer position
 ```
 
-### Select 3rd row
+The uploaded notes use this same distinction.
+
+---
+
+# 45. Boolean Indexing
+
+Boolean indexing filters rows using conditions.
+
+Example:
 
 ```python
-df.iloc[2]
+df[df["Age"] > 25]
 ```
 
-Output:
+Only rows where the condition is `True` are selected.
 
-```text
-Name       Amit
-Age           28
-City       Delhi
-```
+---
 
-### Select 2nd and 3rd rows
+# 46. Single Condition
+
+Example:
 
 ```python
-df.iloc[1:3]
+df[df["Age"] > 25]
 ```
 
-Output:
-
-```text
-    Name    Age       City
-1   Priya    23     Siliguri
-2   Amit     28     Delhi
-```
-
-### Select 1st and 3rd columns
+Other examples:
 
 ```python
-df.iloc[:, [0, 2]]
-```
+df[df["Salary"] >= 30000]
 
-Output:
+df[df["City"] == "Kolkata"]
 
-```text
-    Name       City
-0   Rahul     Kolkata
-1   Priya     Siliguri
-2   Amit      Delhi
-3   Sneha     Mumbai
+df[df["Age"] != 25]
 ```
 
 ---
 
-# `iloc` vs `loc`
+# 47. Multiple Conditions
 
-| Feature               | `iloc`   | `loc`       |
-| --------------------- | -------- | ----------- |
-| Based on              | Position | Label/Index |
-| Uses integer position | ✅        | ❌           |
-| Uses condition        | ❌        | ✅           |
-| Select rows           | ✅        | ✅           |
-| Select columns        | ✅        | ✅           |
+## AND `&`
 
-
-# Pandas `between()`
-
-`between()` checks whether values are within a given range.
-
-## Syntax
+Both conditions must be true.
 
 ```python
-df["column"].between(start, end)
+df[
+    (df["Age"] > 25) &
+    (df["City"] == "Kolkata")
+]
 ```
 
-## Example
+## OR `|`
+
+At least one condition must be true.
 
 ```python
-df["age"].between(20, 30)
+df[
+    (df["Age"] > 25) |
+    (df["City"] == "Kolkata")
+]
 ```
 
-* `20` and `30` are included by default.
-* Returns `True` or `False`.
+## NOT `~`
+
+Reverses the condition.
+
+```python
+df[
+    ~(df["City"] == "Kolkata")
+]
+```
+
+### Important
+
+Always use parentheses:
+
+```python
+df[
+    (condition1) &
+    (condition2)
+]
+```
+
+This matches the Boolean-indexing pattern in the source notes.
+
+---
+
+# 48. `isin()`
+
+`isin()` checks whether a column contains any value from a given list.
+
+### Syntax
+
+```python
+df[df["column"].isin([value1, value2])]
+```
+
+Example:
+
+```python
+df[
+    df["payment_mode"].isin(["UPI", "EMI"])
+]
+```
+
+This means:
 
 ```text
-20 ≤ age ≤ 30
+UPI OR EMI
 ```
 
-## Filter Rows
+The uploaded notes explicitly use `payment_mode` for this example.
+
+### Easy Remember
 
 ```python
-df[df["age"].between(20, 30)]
+isin(["UPI", "EMI"])
 ```
 
-# Pandas `query()`
+→ Match **UPI OR EMI**
 
-`query()` is used to **filter rows using a condition**.
+---
 
-## Syntax
+# 49. `between()`
+
+`between()` checks whether values are inside a range.
+
+### Syntax
+
+```python
+df["Age"].between(20, 30)
+```
+
+By default:
+
+```text
+20 ≤ Age ≤ 30
+```
+
+Both endpoints are included.
+
+### Filter Rows
+
+```python
+df[
+    df["Age"].between(20, 30)
+]
+```
+
+The source notes describe `between()` as returning `True`/`False` for values within the given range.
+
+---
+
+# 50. `query()`
+
+`query()` filters rows using a condition.
+
+### Syntax
 
 ```python
 df.query("condition")
 ```
 
-## Example
+Example:
 
 ```python
-df.query("age > 25")
+df.query("Age > 25")
 ```
 
-Returns rows where `age` is greater than 25.
-
-## Multiple Conditions
+Multiple conditions:
 
 ```python
-df.query("age > 25 and city == 'Kolkata'")
+df.query(
+    "Age > 25 and City == 'Kolkata'"
+)
 ```
-
-* `and` → both conditions
-* `or` → any one condition
 
 ### Remember
 
-**`query()` = condition দিয়ে rows filter করা**
-
-# Pandas Boolean Indexing
-
-Boolean indexing is used to **filter rows** of a DataFrame using conditions.
-
-## Basic Syntax
-
-```python
-df[df["column"] > value]
+```text
+query() = condition দিয়ে rows filter করা
 ```
 
-### Example
+---
+
+# 51. Selecting Specific Rows and Columns
+
+Using `loc`:
 
 ```python
-df[df["age"] > 25]
+df.loc[
+    [0, 2],
+    ["Name", "Age"]
+]
 ```
 
-Only rows where the condition is `True` are selected.
-
-## Boolean Operators
-
-| Operator | Meaning |    |
-| -------- | ------- | -- |
-| `&`      | AND     |    |
-| `        | `       | OR |
-| `~`      | NOT     |    |
-
-### AND `&`
-
-Both conditions must be `True`.
+Using `iloc`:
 
 ```python
-df[(df["age"] > 25) & (df["city"] == "Kolkata")]
+df.iloc[
+    [0, 2],
+    [0, 1]
+]
 ```
 
-### OR `|`
-
-At least one condition must be `True`.
+Using a condition with `loc`:
 
 ```python
-df[(df["age"] > 25) | (df["city"] == "Kolkata")]
+df.loc[
+    df["Age"] > 25,
+    ["Name", "City"]
+]
 ```
 
-### NOT `~`
+---
 
-Reverses the condition.
+# Level 3 Quick Revision
+
+| Method               | Main Use                        |
+| -------------------- | ------------------------------- |
+| `df["Name"]`         | One column                      |
+| `df[["Name","Age"]]` | Multiple columns                |
+| `df[condition]`      | Filter rows                     |
+| `loc`                | Label/condition based selection |
+| `iloc`               | Position based selection        |
+| Boolean indexing     | Filter using conditions         |
+| `isin()`             | Match multiple values           |
+| `between()`          | Filter a range                  |
+| `query()`            | Filter using a query condition  |
+
+---
+
+# Level 4: Modifying Data
+
+# 52. Adding a New Column
+
+The easiest way to add a column is:
 
 ```python
-df[~(df["city"] == "Kolkata")]
+df["Pass"] = df["Marks"] >= 40
 ```
 
-## Important
+This creates a new `Pass` column.
 
-Use **parentheses** around each condition:
+The source notes use the same method for adding a new column.
+
+---
+
+# 53. Creating a Column with Values
 
 ```python
-df[(condition1) & (condition2)]
+df["Gender"] = ["M", "F", "M", "F"]
 ```
 
-**Boolean indexing = condition-এর মাধ্যমে matching rows filter করা।**
-
-# Pandas `assign()`
-
-## What is `assign()`?
-
-`assign()` is used to **add new columns** to a Pandas DataFrame.
-
-It returns a **new DataFrame**.
-
-## Syntax
+Example:
 
 ```python
-df = df.assign(column_name=values)
+df["Bonus"] = [1000, 2000, 1500, 2500]
 ```
 
-## Example
+---
+
+# 54. Creating a Column Using Calculation
+
+Suppose:
 
 ```python
-import pandas as pd
+df["Salary"]
+```
 
-df = pd.DataFrame({
-    "name": ["Rahul", "Priya", "Amit"],
-    "salary": [20000, 25000, 30000]
-})
+We want to create a bonus equal to 10% of salary:
 
+```python
+df["Bonus"] = df["Salary"] * 0.10
+```
+
+We can also calculate total salary:
+
+```python
+df["Total"] = df["Salary"] + df["Bonus"]
+```
+
+---
+
+# 55. Updating a Column
+
+Suppose we want to increase every salary by 5%:
+
+```python
+df["Salary"] = df["Salary"] * 1.05
+```
+
+Or add 500:
+
+```python
+df["Salary"] = df["Salary"] + 500
+```
+
+The uploaded notes show the same direct column modification pattern.
+
+---
+
+# 56. Modifying a Specific Value
+
+Use `loc`.
+
+```python
+df.loc[0, "Marks"] = 90
+```
+
+This changes the value of:
+
+```text
+Row → 0
+Column → Marks
+```
+
+---
+
+# 57. `assign()`
+
+`assign()` is used to add new columns.
+
+```python
 df = df.assign(
     bonus=df["salary"] * 0.10
 )
-
-print(df)
 ```
 
-### Output
+It returns a **new DataFrame**.
 
-```text
-    name  salary   bonus
-0  Rahul   20000  2000.0
-1  Priya   25000  2500.0
-2   Amit   30000  3000.0
-```
-
-## Important Point
-
-The new column is normally added at the **end**.
-
-```python
-df = df.assign(age=[20, 21, 22])
-```
-
-`assign()` can also add multiple columns:
+Multiple columns can be added:
 
 ```python
 df = df.assign(
@@ -1111,118 +1494,75 @@ df = df.assign(
 )
 ```
 
-# Pandas `insert()`
+---
 
-## What is `insert()`?
+# 58. `insert()`
 
-`insert()` is used to **add a new column at a specific position** in a Pandas DataFrame.
+`insert()` adds a new column at a **specific position**.
 
-It directly modifies the original DataFrame.
-
-## Syntax
+### Syntax
 
 ```python
-df.insert(position, "column_name", values)
+df.insert(
+    position,
+    "column_name",
+    values
+)
 ```
 
-## Example
+Example:
 
 ```python
-import pandas as pd
-
-df = pd.DataFrame({
-    "name": ["Rahul", "Priya", "Amit"],
-    "salary": [20000, 25000, 30000]
-})
-
 df.insert(
     1,
-    "age",
+    "Age",
     [20, 21, 22]
 )
-
-print(df)
 ```
 
-### Output
+The new column is inserted at position `1`.
+
+Unlike `assign()`, `insert()` directly modifies the original DataFrame.
+
+---
+
+# 59. `assign()` vs `insert()`
+
+| Feature                    | `assign()` | `insert()`    |
+| -------------------------- | ---------- | ------------- |
+| Add column                 | Yes        | Yes           |
+| Specific position          | No         | Yes           |
+| Returns new DataFrame      | Yes        | No            |
+| Modifies original directly | No         | Yes           |
+| Multiple columns           | Yes        | One at a time |
+
+### Easy Remember
 
 ```text
-    name  age  salary
-0  Rahul   20   20000
-1  Priya   21   25000
-2   Amit   22   30000
+assign() → Add column
+insert() → Add column at a position
 ```
 
-Here:
+---
+
+# 60. Creating Columns Using Multiple Calculations
+
+Example:
 
 ```python
-1
-```
-
-means the new column is inserted at **position 1**.
-
-## Another Example
-
-```python
-df.insert(
-    2,
-    "bonus",
-    df["salary"] * 0.10
+df["Profit"] = (
+    df["Units_Sold"] *
+    df["Unit_Price"]
 )
 ```
 
-The `bonus` column will be inserted at **position 2**.
-
-## Important Point
-
-`insert()` changes the original DataFrame directly.
+Another example:
 
 ```python
-df.insert(1, "age", [20, 21, 22])
+df["Total"] = (
+    df["Salary"] +
+    df["Bonus"]
+)
 ```
 
-You don't need:
-
-```python
-df = df.insert(...)
-```
-
-because `insert()` modifies `df` itself.
-
-# `isin()` in Pandas
-
-`isin()` is used to check whether a column contains **any value from a given list**.
-
-## Syntax
-
-```python
-df[df["column"].isin([value1, value2])]
-```
-
-## Example
-
-```python
-result = df[df["payment_mode"].isin(["UPI", "EMI"])]
-
-print(result)
-```
-
-This returns rows where `payment_mode` is **UPI OR EMI**.
-
-## Check Unique Values
-
-```python
-print(df["payment_mode"].unique())
-```
-
-### Remember
-
-`isin()` → **matches multiple values**
-
-```python
-isin(["UPI", "EMI"])
-```
-
-Means:
-
-**UPI OR EMI**
+This i
