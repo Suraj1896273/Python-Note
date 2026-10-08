@@ -1635,5 +1635,836 @@ df["Total"] = (
     df["Bonus"]
 )
 ```
+# Removing Columns in Pandas
 
-This i
+Removing a column means **deleting an existing column** from a DataFrame.
+
+## 1. Using `drop()`
+
+The most common method.
+
+```python
+df = df.drop("Age", axis=1)
+```
+
+* `axis=1` means column.
+* Removes the `Age` column.
+
+### Remove multiple columns
+
+```python
+df = df.drop(["Age", "Salary"], axis=1)
+```
+
+---
+
+## 2. Using `columns=`
+
+A simpler way to use `drop()`.
+
+```python
+df = df.drop(columns="Age")
+```
+
+For multiple columns:
+
+```python
+df = df.drop(columns=["Age", "Salary"])
+```
+
+---
+
+## 3. Using `del`
+
+`del` directly removes a column.
+
+```python
+del df["Age"]
+```
+
+It changes the original DataFrame.
+
+---
+
+## 4. Using `pop()`
+
+`pop()` removes a column **and returns the removed column**.
+
+```python
+age = df.pop("Age")
+```
+
+Now:
+
+```python
+print(age)
+```
+
+shows the removed `Age` column.
+
+---
+
+## 5. Using `inplace=True`
+
+It removes the column directly from the original DataFrame.
+
+```python
+df.drop("Age", axis=1, inplace=True)
+```
+
+No need to write:
+
+```python
+df = df.drop(...)
+```
+
+## Easy Remember
+
+```text
+drop()       → remove column
+del          → directly delete column
+pop()        → remove + return column
+inplace=True → modify original DataFrame
+```
+
+### Most Important
+
+```python
+df.drop(columns="Age")
+```
+
+Use `drop()` most of the time because it is clear and flexible.
+
+# Removing Rows in Pandas
+
+Removing rows means **deleting unwanted rows** from a DataFrame.
+
+## 1. Using `drop()`
+
+Used to remove rows by their index.
+
+```python
+df = df.drop(2)
+```
+
+Removes the row with index `2`.
+
+### Remove Multiple Rows
+
+```python
+df = df.drop([1, 3, 5])
+```
+
+Removes rows with indexes `1`, `3`, and `5`.
+
+### Using `axis=0`
+
+```python
+df = df.drop(2, axis=0)
+```
+
+`axis=0` means **row**.
+
+---
+
+## 2. Using `inplace=True`
+
+Used when you want to modify the original DataFrame directly.
+
+```python
+df.drop(2, inplace=True)
+```
+
+No need to write `df =`.
+
+---
+
+## 3. Using `loc[]`
+
+Used to remove rows based on a condition.
+
+```python
+df = df.loc[df["Age"] >= 20]
+```
+
+Only rows where `Age >= 20` will remain.
+
+---
+
+## 4. Using `query()`
+
+Used to filter rows using a condition.
+
+```python
+df = df.query("Age >= 20")
+```
+
+Rows where `Age < 20` will be removed.
+
+---
+
+## 5. Using `dropna()`
+
+Used to remove rows containing missing values (`NaN`).
+
+```python
+df = df.dropna()
+```
+
+### For a Specific Column
+
+```python
+df = df.dropna(subset=["Age"])
+```
+
+Removes rows where `Age` is `NaN`.
+
+---
+
+## 6. Using `drop_duplicates()`
+
+Used to remove duplicate rows.
+
+```python
+df = df.drop_duplicates()
+```
+
+### Based on a Specific Column
+
+```python
+df = df.drop_duplicates(subset=["Name"])
+```
+
+---
+
+## 7. Using `iloc[]`
+
+`iloc[]` is mainly used to **select rows by position**.
+
+For example:
+
+```python
+df = df.iloc[1:]
+```
+
+This removes the first row by keeping rows from position `1`.
+
+---
+
+# Which Method to Use?
+
+| Method              | Use                             |
+| ------------------- | ------------------------------- |
+| `drop()`            | Remove specific rows by index   |
+| `loc[]`             | Remove rows using a condition   |
+| `query()`           | Filter rows using a condition   |
+| `dropna()`          | Remove rows with missing values |
+| `drop_duplicates()` | Remove duplicate rows           |
+| `iloc[]`            | Select rows by position         |
+| `inplace=True`      | Modify the original DataFrame   |
+
+## Easy Remember
+
+```text
+Specific index  → drop()
+Condition       → loc() / query()
+Missing values  → dropna()
+Duplicates      → drop_duplicates()
+Position        → iloc[]
+Original change → inplace=True
+```
+
+### Most Important
+
+```python
+df.drop(2)
+df.loc[df["]()]()
+```
+# Rename in Pandas
+
+`rename()` is used to **change column or index names**.
+
+## Rename Column
+
+```python
+df = df.rename(columns={"Name": "Student_Name"})
+```
+
+## Rename Multiple Columns
+
+```python
+df = df.rename(columns={
+    "Name": "Student_Name",
+    "Age": "Student_Age"
+})
+```
+
+# Data Cleaning in Pandas
+
+## 1. What is Data Cleaning?
+
+**Data Cleaning** means finding and handling **missing, incorrect, duplicate, or unwanted data** in a dataset.
+
+Data cleaning is important because dirty data can give **wrong analysis results**.
+
+### Example
+
+```python
+import pandas as pd
+
+df = pd.DataFrame({
+    "Name": ["Rahul", "Priya", "Amit", "Rahul"],
+    "Age": [20, None, 22, 20],
+    "Salary": [30000, 35000, None, 30000]
+})
+
+print(df)
+```
+
+Output:
+
+```text
+    Name   Age   Salary
+0  Rahul  20.0  30000.0
+1  Priya   NaN  35000.0
+2   Amit  22.0      NaN
+3  Rahul  20.0  30000.0
+```
+
+Here:
+
+* `NaN` → Missing value
+* Row 3 is a duplicate of Row 0
+
+---
+
+# 2. What is a Missing Value?
+
+A **missing value** means there is **no value/data** in a particular cell.
+
+In Pandas, a missing value is commonly shown as `NaN`.
+
+### Example
+
+```python
+df["Age"]
+```
+
+Output:
+
+```text
+0    20.0
+1     NaN
+2    22.0
+3    20.0
+```
+
+Here, `Age` of Priya is missing.
+
+---
+
+# 3. `isna()`
+
+`isna()` checks whether a value is **missing**.
+
+### Example
+
+```python
+df["Age"].isna()
+```
+
+Output:
+
+```text
+0    False
+1     True
+2    False
+3    False
+```
+
+### Meaning
+
+```text
+True  → Value is missing
+False → Value is present
+```
+
+---
+
+# 4. `isnull()`
+
+`isnull()` also checks for **missing values**.
+
+```python
+df["Age"].isnull()
+```
+
+Output:
+
+```text
+0    False
+1     True
+2    False
+3    False
+```
+
+`isnull()` and `isna()` do the **same job**.
+
+```text
+isna() = isnull()
+```
+
+---
+
+# 5. `notna()`
+
+`notna()` is the opposite of `isna()`.
+
+It checks whether a value is **not missing**.
+
+```python
+df["Age"].notna()
+```
+
+Output:
+
+```text
+0     True
+1    False
+2     True
+3     True
+```
+
+### Meaning
+
+```text
+True  → Value is present / not missing
+False → Value is missing
+```
+
+---
+
+# 6. `notnull()`
+
+`notnull()` is the opposite of `isnull()`.
+
+```python
+df["Age"].notnull()
+```
+
+Output:
+
+```text
+0     True
+1    False
+2     True
+3     True
+```
+
+`notnull()` and `notna()` do the **same job**.
+
+```text
+notna() = notnull()
+```
+
+---
+
+
+# 7. Comparison Table
+
+| Function    | `True` means | `False` means |
+| ----------- | ------------ | ------------- |
+| `isna()`    | Missing      | Present       |
+| `isnull()`  | Missing      | Present       |
+| `notna()`   | Present      | Missing       |
+| `notnull()` | Present      | Missing       |
+
+---
+
+# 8. Easy Remember
+
+```text
+isna()     → True = Missing
+isnull()   → True = Missing
+notna()    → True = Present
+notnull()  → True = Present
+```
+
+```text
+isna()    = isnull()
+notna()   = notnull()
+```
+# `dropna()` in Pandas
+
+`dropna()` is used to **remove rows or columns that contain missing values (`NaN`)**.
+
+---
+
+## 1. Basic `dropna()`
+
+```python
+df = df.dropna()
+```
+
+By default, it removes **rows** that contain at least one missing value.
+
+### Example
+
+```python
+import pandas as pd
+
+df = pd.DataFrame({
+    "Name": ["Rahul", "Priya", "Amit"],
+    "Age": [20, None, 22],
+    "Salary": [30000, 35000, None]
+})
+
+print(df)
+```
+
+Before `dropna()`:
+
+```text
+    Name   Age   Salary
+0  Rahul  20.0  30000.0
+1  Priya   NaN  35000.0
+2   Amit  22.0      NaN
+```
+
+Now:
+
+```python
+df = df.dropna()
+```
+
+Output:
+
+```text
+    Name   Age   Salary
+0  Rahul  20.0  30000.0
+```
+
+### Why?
+
+* Priya → `Age` is missing ❌
+* Amit → `Salary` is missing ❌
+* Rahul → No missing value ✅
+
+---
+
+# 2. `axis=0` — Remove Rows
+
+`axis=0` means **rows**.
+
+```python
+df = df.dropna(axis=0)
+```
+
+This is the default behavior.
+
+So:
+
+```python
+df.dropna()
+```
+
+and
+
+```python
+df.dropna(axis=0)
+```
+
+do the same thing.
+
+---
+
+# 3. `axis=1` — Remove Columns
+
+`axis=1` means **columns**.
+
+```python
+df = df.dropna(axis=1)
+```
+
+It removes columns that contain missing values.
+
+### Example
+
+```text
+    Name   Age   Salary
+0  Rahul  20.0  30000
+1  Priya   NaN  35000
+2  Amit   22.0  NaN
+```
+
+After:
+
+```python
+df = df.dropna(axis=1)
+```
+
+Output:
+
+```text
+    Name
+0  Rahul
+1  Priya
+2  Amit
+```
+
+Because both `Age` and `Salary` contain missing values.
+
+---
+
+# 4. `how="any"`
+
+```python
+df = df.dropna(how="any")
+```
+
+`how="any"` means:
+
+> If **any one value** in a row is missing, remove that row.
+
+This is the default.
+
+```python
+df.dropna()
+```
+
+is the same as:
+
+```python
+df.dropna(how="any")
+```
+
+---
+
+# 5. `how="all"`
+
+```python
+df = df.dropna(how="all")
+```
+
+`how="all"` means:
+
+> Remove the row only when **all values are missing**.
+
+### Example
+
+```text
+Name    Age    Salary
+Rahul   20     30000
+NaN     NaN    NaN
+Amit    22     40000
+```
+
+After:
+
+```python
+df.dropna(how="all")
+```
+
+The completely empty row will be removed.
+
+---
+
+# 6. `subset`
+
+`subset` is used when you want to check missing values in **specific columns**.
+
+```python
+df = df.dropna(subset=["Age"])
+```
+
+Meaning:
+
+> Remove rows where `Age` is missing.
+
+### Example
+
+```text
+Name    Age    Salary
+Rahul   20     30000
+Priya   NaN    35000
+Amit    22     NaN
+```
+
+```python
+df.dropna(subset=["Age"])
+```
+
+Output:
+
+```text
+Name    Age    Salary
+Rahul   20     30000
+Amit    22     NaN
+```
+
+Priya is removed because her `Age` is missing.
+
+Notice that Amit stays because we are checking only `Age`.
+
+---
+
+# 7. Multiple Columns with `subset`
+
+```python
+df = df.dropna(subset=["Age", "Salary"])
+```
+
+Now Pandas checks both `Age` and `Salary`.
+
+A row with a missing value in either of these columns will be removed.
+
+---
+
+# 8. `inplace=True`
+
+Normally:
+
+```python
+df = df.dropna()
+```
+
+creates the changed DataFrame and stores it back in `df`.
+
+You can also use:
+
+```python
+df.dropna(inplace=True)
+```
+
+This directly changes the original DataFrame.
+
+So you do not need:
+
+```python
+df = 
+```
+
+---
+
+# 9. `dropna()` on a Specific Column
+
+You can also use:
+
+```python
+df["Age"] = df["Age"].dropna()
+```
+
+But this is **not the usual way to remove rows** from a DataFrame.
+
+For removing rows based on `Age`, prefer:
+
+```python
+df = df.dropna(subset=["Age"])
+```
+
+---
+
+# 10. Important Parameters
+
+| Parameter      | Meaning                               |
+| -------------- | ------------------------------------- |
+| `axis=0`       | Remove rows                           |
+| `axis=1`       | Remove columns                        |
+| `how="any"`    | Remove if any value is missing        |
+| `how="all"`    | Remove only if all values are missing |
+| `subset`       | Check specific columns                |
+| `inplace=True` | Modify original DataFrame             |
+
+---
+
+# 11. When Should You Use `dropna()`?
+
+Use `dropna()` when:
+
+* Missing values are very few.
+* Rows with missing data are not useful.
+* You do not want to fill the missing values.
+* Removing the rows will not affect your analysis significantly.
+
+### Example
+
+```python
+df = df.dropna()
+```
+
+---
+
+# 12. `dropna()` vs `fillna()`
+
+```text
+dropna() → Remove missing data
+fillna() → Fill missing data
+```
+
+Example:
+
+```text
+Before:
+20
+NaN
+30
+```
+
+### `dropna()`
+
+```text
+20
+30
+```
+
+### `fillna(0)`
+
+```text
+20
+0
+30
+```
+
+So:
+
+> **Use `dropna()` when you want to remove missing data.**
+> **Use `fillna()` when you want to keep the data and replace missing values.**
+
+---
+
+# Easy Remember
+
+```text
+dropna()
+   ↓
+Remove NaN
+
+axis=0 → Rows
+axis=1 → Columns
+
+any → Any missing value
+all → All values missing
+
+subset → Specific columns
+inplace=True → Change original DataFrame
+```
+
+### Most Important Examples
+
+```python
+# Remove rows with missing values
+df = df.dropna()
+
+# Remove columns with missing values
+df = df.dropna(axis=1)
+
+# Remove rows if Age is missing
+df = df.dropna(subset=["Age"])
+
+# Remove only completely empty rows
+df = df.dropna(how="all")
+
+# Modify original DataFrame
+df.dropna(inplace=True)
+```
+
