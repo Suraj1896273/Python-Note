@@ -1334,7 +1334,7 @@ df.query(
 ### Remember
 
 ```text
-query() = condition দিয়ে rows filter করা
+query() = Find with condition
 ```
 
 ---
@@ -1386,7 +1386,7 @@ df.loc[
 
 ---
 
-# Level 4: Modifying Data
+## Level 4: Modifying Data
 
 # 52. Adding a New Column
 
@@ -1398,9 +1398,80 @@ df["Pass"] = df["Marks"] >= 40
 
 This creates a new `Pass` column.
 
-The source notes use the same method for adding a new column.
+# `assign()` and `insert()` in Pandas
+
+## 1. `assign()`
+
+`assign()` is used to **add a new column** to a DataFrame.
+
+### Syntax
+
+```python
+df = df.assign(column_name=values)
+```
+
+### Example
+
+```python
+df = df.assign(
+    bonus=df["salary"] * 0.10
+)
+```
+
+### Important
+
+* Adds a new column.
+* Normally adds it at the **end**.
+* Returns a **new DataFrame**.
 
 ---
+
+## 2. `insert()`
+
+`insert()` is used to **add a column at a specific position**.
+
+### Syntax
+
+```python
+df.insert(position, "column_name", values)
+```
+
+### Example
+
+```python
+df.insert(
+    1,
+    "bonus",
+    df["salary"] * 0.10
+)
+```
+
+Here, `1` means the column is inserted at **position 1**.
+
+### Important
+
+* Adds a new column.
+* Allows us to choose the **position**.
+* Directly modifies the original DataFrame.
+
+---
+
+## `assign()` vs `insert()`
+
+| `assign()`            | `insert()`                   |
+| --------------------- | ---------------------------- |
+| Adds a column         | Adds a column                |
+| Normally at the end   | At a specific position       |
+| Returns new DataFrame | Modifies original DataFrame  |
+| Easy for calculations | Useful when position matters |
+
+### Easy Remember
+
+```text
+assign() → Add column
+insert() → Add column at specific position
+```
+
 
 # 53. Creating a Column with Values
 
