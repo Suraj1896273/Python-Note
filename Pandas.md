@@ -2375,96 +2375,106 @@ df = df.dropna(subset=["Age"])
 | `subset`       | Check specific columns                |
 | `inplace=True` | Modify original DataFrame             |
 
----
+# Pandas `fillna()`
 
-# 11. When Should You Use `dropna()`?
+## 1. Definition
 
-Use `dropna()` when:
+`fillna()` is used to replace missing values (`NaN` or `None`) in a Pandas Series or DataFrame.
 
-* Missing values are very few.
-* Rows with missing data are not useful.
-* You do not want to fill the missing values.
-* Removing the rows will not affect your analysis significantly.
-
-### Example
+## 2. Syntax
 
 ```python
-df = df.dropna()
+df.fillna(value)
 ```
 
----
+## 3. Fill Missing Values with a Fixed Value
 
-# 12. `dropna()` vs `fillna()`
+```python
+df.fillna(0)       # Replace missing values with 0
+df.fillna(1000)    # Replace missing values with 1000
+```
+
+## 4. Example
+
+```python
+import pandas as pd
+
+df = pd.DataFrame({
+    "Name": ["Rahul", "Priya", "Amit"],
+    "Age": [20, None, 22],
+    "Salary": [30000, 35000, None]
+})
+
+df = df.fillna(1000)
+print(df)
+```
+
+**Output:**
 
 ```text
-dropna() → Remove missing data
-fillna() → Fill missing data
+    Name     Age   Salary
+0  Rahul    20.0  30000.0
+1  Priya  1000.0  35000.0
+2   Amit    22.0   1000.0
+```
+
+## 5. Fill Different Columns with Different Values
+
+```python
+df.fillna({
+    "Age": 0,
+    "Salary": 1000
+})
+```
+
+## 6. Fill Missing Values Using Mean
+
+```python
+df["Age"] = df["Age"].fillna(df["Age"].mean())
+```
+
+Mean is the average of the available numeric values.
+
+## 7. Fill Missing Values Using Median
+
+```python
+df["Age"] = df["Age"].fillna(df["Age"].median())
+```
+
+Median is the middle value of sorted data.
+
+## 8. Fill Missing Values Using Mode
+
+```python
+df["Name"] = df["Name"].fillna(df["Name"].mode()[0])
+```
+
+Mode is the most frequently occurring value.
+
+## 9. Forward Fill and Backward Fill
+
+```python
+df.ffill()  # Fill using the previous valid value
+df.bfill()  # Fill using the next valid value
 ```
 
 Example:
 
-```text
-Before:
-20
-NaN
-30
-```
-
-### `dropna()`
-
-```text
-20
-30
-```
-
-### `fillna(0)`
-
-```text
-20
-0
-30
-```
-
-So:
-
-> **Use `dropna()` when you want to remove missing data.**
-> **Use `fillna()` when you want to keep the data and replace missing values.**
-
----
-
-# Easy Remember
-
-```text
-dropna()
-   ↓
-Remove NaN
-
-axis=0 → Rows
-axis=1 → Columns
-
-any → Any missing value
-all → All values missing
-
-subset → Specific columns
-inplace=True → Change original DataFrame
-```
-
-### Most Important Examples
-
 ```python
-# Remove rows with missing values
-df = df.dropna()
+s = pd.Series([10, None, 30])
 
-# Remove columns with missing values
-df = df.dropna(axis=1)
-
-# Remove rows if Age is missing
-df = df.dropna(subset=["Age"])
-
-# Remove only completely empty rows
-df = df.dropna(how="all")
-
-# Modify original DataFrame
-df.dropna(inplace=True)
+print(s.ffill().tolist())  # [10, 10, 30]
+print(s.bfill().tolist())  # [10, 30, 30]
 ```
+
+## 10. Important Notes
+
+- `fillna()` replaces missing values; it does not delete rows.
+- Use `df = df.fillna(0)` to save the result.
+- Mean and median are useful for numerical data.
+- Mode is useful for categorical data.
+- Choose replacement values carefully because they can affect data analysis.
+
+
+
 
