@@ -4,13 +4,7 @@
 
 ## 1. What is Pandas?
 
-**Pandas** is a Python library used for:
-
-* Data manipulation
-* Data analysis
-* Data cleaning
-* Working with structured data
-* Reading and writing files
+**Pandas** is a Python library used to store, organize, clean, and analyze data easily.
 
 Pandas helps us work with data in the form of **tables**, similar to Excel spreadsheets.
 
