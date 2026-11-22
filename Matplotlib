@@ -1,1 +1,35 @@
+DATA VISUALIZATION – COMPLETE NOTES
 
+1. What is Data Visualization?
+
+Definition: Data Visualization is the process of representing data in a visual form, such as charts, graphs, maps, and diagrams.
+
+It helps us understand data easily and find useful information from large datasets.
+
+Example:
+
+Suppose we have the sales data of a shop:
+
+Product
+
+Sales
+
+Mobile
+
+50000
+
+Laptop
+
+80000
+
+Headphones
+
+20000
+
+Tablet
+
+40000
+
+We can represent this data using a bar chart.
+
+Instead of reading all the numbers, we can easily understand which product has the highest sales.
