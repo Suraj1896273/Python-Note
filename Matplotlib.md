@@ -84,3 +84,62 @@ Matplotlib is a Python library used to create graphs, charts, and plots for data
 | `plt.show()` | Displays the chart |
 | `plt.savefig()` | Saves the chart |
 
+
+# Matplotlib – Bar Plot
+
+## 1. Definition
+A Bar Plot is a type of graph used to compare different categories of data using rectangular bars.
+
+**Example:** Comparing the ratings of Python, C, C++, and Java.
+
+## 2. Importance
+- Compares different categories.
+- Identifies the highest and lowest values.
+- Makes data easy to understand.
+- Useful in sales and data analysis.
+
+## 3. Basic Syntax
+
+```python
+plt.bar(x, height)
+```
+
+## 4. Important Functions and Parameters
+
+| Function / Parameter | Description |
+|---|---|
+| `plt.bar()` | Creates a vertical bar plot. |
+| `plt.barh()` | Creates a horizontal bar plot. |
+| `plt.xlabel()` | Sets X-axis label. |
+| `plt.ylabel()` | Sets Y-axis label. |
+| `plt.title()` | Sets chart title. |
+| `plt.show()` | Displays the chart. |
+| `plt.legend()` | Displays the legend. |
+| `plt.xticks()` | Sets X-axis tick labels. |
+| `plt.yticks()` | Sets Y-axis tick labels. |
+| `width` | Controls bar width. |
+| `color` | Changes bar color. |
+| `edgecolor` | Changes border color. |
+| `linewidth` | Controls border thickness. |
+| `alpha` | Controls transparency. |
+| `label` | Gives a name to the data series. |
+
+## 5. Legend (`plt.legend()`)
+
+**Definition:** Legend identifies different data series in a graph.
+
+```python
+plt.bar(x, y, label='Python')
+plt.legend(loc='upper right')
+```
+
+## 6. Multiple Bar Graph
+
+**Definition:** A Multiple Bar Graph compares two or more datasets across the same categories.
+
+- `np.arange()` – Creates numerical positions.
+- `width` – Controls bar width.
+- `p - width/2` – Moves bars left.
+- `p + width/2` – Moves bars right.
+- `plt.xticks()` – Sets category names.
+
