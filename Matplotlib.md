@@ -143,3 +143,128 @@ plt.legend(loc='upper right')
 - `p + width/2` – Moves bars right.
 - `plt.xticks()` – Sets category names.
 
+# Matplotlib – Scatter Plot
+
+## 1. Definition
+
+A Scatter Plot is a type of graph used to show the relationship between two numerical variables using dots (points).
+
+Each dot represents one data point.
+
+**Example:** Showing the relationship between students' study hours and their exam marks.
+
+## 2. Importance
+
+- Shows the relationship between two variables.
+- Helps identify positive and negative correlations.
+- Helps identify patterns and trends.
+- Helps detect outliers.
+- Useful in Data Analysis and Data Science.
+- Helps understand numerical data easily.
+
+## 3. Basic Syntax
+
+```python
+plt.scatter(x, y)
+```
+
+**Example:**
+
+```python
+import matplotlib.pyplot as plt
+
+x = [1, 2, 3, 4, 5]
+y = [10, 20, 30, 40, 50]
+
+plt.scatter(x, y)
+
+plt.xlabel("X Values")
+plt.ylabel("Y Values")
+plt.title("Scatter Plot")
+
+plt.show()
+```
+
+## 4. Important Functions and Parameters
+
+| Function / Parameter | Description |
+|---|---|
+| `plt.scatter()` | Creates a scatter plot. |
+| `plt.xlabel()` | Sets X-axis label. |
+| `plt.ylabel()` | Sets Y-axis label. |
+| `plt.title()` | Sets chart title. |
+| `plt.show()` | Displays the chart. |
+| `plt.legend()` | Displays the legend. |
+| `plt.xticks()` | Sets X-axis tick labels. |
+| `plt.yticks()` | Sets Y-axis tick labels. |
+| `plt.grid()` | Displays grid lines. |
+| `plt.xlim()` | Sets X-axis limits. |
+| `plt.ylim()` | Sets Y-axis limits. |
+| `s` | Controls the size of dots. |
+| `c` | Changes the color of dots. |
+| `marker` | Changes the shape of dots. |
+| `alpha` | Controls dot transparency. |
+| `cmap` | Applies a color map to numerical values. |
+| `edgecolors` | Changes the border color of dots. |
+| `linewidths` | Controls the border thickness. |
+| `label` | Gives a name to the data series. |
+
+
+**Important Marker Symbols:**
+
+| Marker | Shape |
+|---|---|
+| `'o'` | Circle |
+| `'*'` | Star |
+| `'+'` | Plus |
+| `'x'` | Cross |
+| `'s'` | Square |
+| `'^'` | Triangle |
+| `'D'` | Diamond |
+| `'v'` | Down Triangle |
+| `'p'` | Pentagon |
+| `'h'` | Hexagon |
+
+## 9. Color Map (`cmap`)
+
+**Definition:** The `cmap` parameter is used to apply different colors to dots based on numerical values.
+
+```python
+colors = [10, 20, 30, 40, 50]
+
+plt.scatter(x, y, c=colors, cmap='viridis')
+
+plt.colorbar()
+
+plt.show()
+```
+
+**Important Color Maps:**
+
+| Color Map | Description |
+|---|---|
+| `viridis` | Purple to yellow |
+| `plasma` | Purple to yellow |
+| `inferno` | Dark to bright |
+| `cool` | Cyan to magenta |
+| `hot` | Black to red to yellow |
+| `jet` | Blue to red |
+| `rainbow` | Multiple colors |
+| `gray` | Black and white |
+
+## 18. Types of Correlation in Scatter Plot
+
+1. **Positive Correlation:** When one variable increases, the other variable also increases.
+
+2. **Negative Correlation:** When one variable increases, the other variable decreases.
+
+3. **No Correlation:** When there is no clear relationship between two variables.
+
+## 19. When to Use Scatter Plot?
+
+- To compare study hours and exam marks.
+- To analyze product price and sales.
+- To find the relationship between height and weight.
+- To analyze advertising cost and profit.
+- To identify outliers in datasets.
+- To understand relationships between numerical columns.
